@@ -1,0 +1,8 @@
+/.idea
+/.idea/
+/cache/
+/composer.lock
+/vendor/
+/phpunit.xml
+/app/config.ini
+/fwk-build/

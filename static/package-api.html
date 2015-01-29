@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fwk\Core API Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../app/site/assets/bootstrap/css/bootstrap-sandstone.min.css" media="screen">
+    <!--[if lt IE 9]>
+    <script src="../app/site/assets/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../app/site/assets/css/site.css" media="screen">
+</head>
+<body>
+<div class="navbar navbar-default" id="mainmenu">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="./index.html" class="navbar-brand">Fwk</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="./package-intro.html" class="core"><span class="icon icon-settings"></span> Core</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="db"><span class="icon icon-data"></span> Db</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="di"><span class="icon icon-diamond"></span> Di</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="xml"><span class="icon icon-lab"></span> Xml</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="form"><span class="icon icon-clip"></span> Form</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="cache"><span class="icon icon-paperplane"></span> Cache</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="events"><span class="icon icon-megaphone"></span> Events</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="./about.html" id="about">About</a>
+                </li>
+                <li>
+                    <a href="./blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="./status.html">Discuss</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="navbar navbar-inverse" id="submenu">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-sub">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-sub">
+            <ul class="nav navbar-nav">
+                <li role="presentation"><a href="./package-intro.html">Introduction</a></li>
+                <li role="presentation" class="">
+                    <a href="./package-api.html">Documentation</a>
+                </li>
+                <li role="presentation" class="active"><a href="./package-api.html">API Documentation</a></li>
+                <li>
+                    <a href="#">Build Status</a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="View on Github"><span class="icon icon-github" style="font-size: 16px; vertical-align: middle"></span></a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">master <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Db/master">master</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Db/fix-lib">fix-lib</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search Docs &amp; API">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container core" id="main">
+    <div class="row">
+        <div class="col col-md-4">
+            <ul class="nav nav-tabs" id="docTabs" style="margin: 20px 0 0 0">
+                <li class="active"><a href="#classes" id="classTab">Classes (52)</a></li>
+                <li><a href="#interfaces" id="interfaceTab">Interfaces (8)</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div id="classes" class="tab-pane fade active in">
+                    <ul class="nav nav-pills nav-stacked classes">
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Accessor.html">Fwk\Core\Accessor</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/AbstractControllerActionProxy.html">Fwk\Core\Action\AbstractControllerActionProxy</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/CallableActionProxy.html">Fwk\Core\Action\CallableActionProxy</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/Controller.html">Fwk\Core\Action\Controller</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/ControllerActionProxy.html">Fwk\Core\Action\ControllerActionProxy</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/IncludeActionProxy.html">Fwk\Core\Action\IncludeActionProxy</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/ProxyFactory.html">Fwk\Core\Action\ProxyFactory</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/Result.html">Fwk\Core\Action\Result</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/ServiceActionProxy.html">Fwk\Core\Action\ServiceActionProxy</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Action/ServiceControllerActionProxy.html">Fwk\Core\Action\ServiceControllerActionProxy</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/AppEvents.html">Fwk\Core\AppEvents</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Application.html">Fwk\Core\Application</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ConsoleListener.html">Fwk\Core\Components\ConsoleListener</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/Descriptor/Descriptor.html">Fwk\Core\Components\Descriptor\Descriptor</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/Descriptor/DescriptorListener.html">Fwk\Core\Components\Descriptor\DescriptorListener</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/Descriptor/DescriptorLoadedEvent.html">Fwk\Core\Components\Descriptor\DescriptorLoadedEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/Descriptor/Exception.html">Fwk\Core\Components\Descriptor\Exception</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ErrorReporterListener.html">Fwk\Core\Components\ErrorReporterListener</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/RequestMatcher/RequestMatcher.html">Fwk\Core\Components\RequestMatcher\RequestMatcher</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/RequestMatcher/RequestMatcherListener.html">Fwk\Core\Components\RequestMatcher\RequestMatcherListener</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/RequestMatcher/UrlViewHelper.html">Fwk\Core\Components\RequestMatcher\UrlViewHelper</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ResultType/ChainResultType.html">Fwk\Core\Components\ResultType\ChainResultType</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ResultType/Exception.html">Fwk\Core\Components\ResultType\Exception</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ResultType/JsonResultType.html">Fwk\Core\Components\ResultType\JsonResultType</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ResultType/PhpTemplateResultType.html">Fwk\Core\Components\ResultType\PhpTemplateResultType</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ResultType/RedirectResultType.html">Fwk\Core\Components\ResultType\RedirectResultType</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ResultType/ResultTypeListener.html">Fwk\Core\Components\ResultType\ResultTypeListener</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ResultType/ResultTypeService.html">Fwk\Core\Components\ResultType\ResultTypeService</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/SessionListener.html">Fwk\Core\Components\SessionListener</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/UrlRewriter/Exception.html">Fwk\Core\Components\UrlRewriter\Exception</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/UrlRewriter/Route.html">Fwk\Core\Components\UrlRewriter\Route</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/UrlRewriter/RouteParameter.html">Fwk\Core\Components\UrlRewriter\RouteParameter</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/UrlRewriter/UrlRewriterListener.html">Fwk\Core\Components\UrlRewriter\UrlRewriterListener</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/UrlRewriter/UrlRewriterService.html">Fwk\Core\Components\UrlRewriter\UrlRewriterService</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/UrlRewriter/UrlViewHelper.html">Fwk\Core\Components\UrlRewriter\UrlViewHelper</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ViewHelper/AbstractViewHelper.html">Fwk\Core\Components\ViewHelper\AbstractViewHelper</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ViewHelper/EmbedViewHelper.html">Fwk\Core\Components\ViewHelper\EmbedViewHelper</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ViewHelper/EscapeViewHelper.html">Fwk\Core\Components\ViewHelper\EscapeViewHelper</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ViewHelper/Exception.html">Fwk\Core\Components\ViewHelper\Exception</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ViewHelper/ViewHelperListener.html">Fwk\Core\Components\ViewHelper\ViewHelperListener</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Components/ViewHelper/ViewHelperService.html">Fwk\Core\Components\ViewHelper\ViewHelperService</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Context.html">Fwk\Core\Context</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/CoreEvent.html">Fwk\Core\CoreEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Events/AfterActionEvent.html">Fwk\Core\Events\AfterActionEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Events/BeforeActionEvent.html">Fwk\Core\Events\BeforeActionEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Events/BootEvent.html">Fwk\Core\Events\BootEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Events/DispatchEvent.html">Fwk\Core\Events\DispatchEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Events/EndEvent.html">Fwk\Core\Events\EndEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Events/ErrorEvent.html">Fwk\Core\Events\ErrorEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Events/RequestEvent.html">Fwk\Core\Events\RequestEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Events/ResponseEvent.html">Fwk\Core\Events\ResponseEvent</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Exception.html">Fwk\Core\Exception</a></li>
+                    </ul>
+                </div>
+                <div id="interfaces" class="tab-pane">
+                    <ul class="nav nav-pills nav-stacked classes" style="font-size: 12px;max-height: 500px; overflow-y: auto;">
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/Fwk/Core/ActionProxy.html">Fwk\Core\ActionProxy</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/Fwk/Core/Components/ResultType/ApplicationAware.html">Fwk\Core\Components\ResultType\ApplicationAware</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/Fwk/Core/Components/ResultType/ResultType.html">Fwk\Core\Components\ResultType\ResultType</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/Fwk/Core/Components/ViewHelper/ViewHelper.html">Fwk\Core\Components\ViewHelper\ViewHelper</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/Fwk/Core/Components/ViewHelper/ViewHelperServiceAware.html">Fwk\Core\Components\ViewHelper\ViewHelperServiceAware</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/Fwk/Core/ContextAware.html">Fwk\Core\ContextAware</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/Fwk/Core/Preparable.html">Fwk\Core\Preparable</a></li>
+                        <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/Fwk/Core/ServicesAware.html">Fwk\Core\ServicesAware</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" id="pjax-container" data-pjax>
+        <h3>        <span id="apiType">Class</span>
+            <a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Core/Application.html" id="apiClass">Fwk\Core\Application</a>
+        </h3>
+        <h4>&nbsp; &nbsp; &nbsp; &rBarr; extends <a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/class/Fwk/Events/Dispatcher.html">\Fwk\Events\Dispatcher</a></h4>    <h4>&nbsp; &nbsp; &nbsp;  &rBarr; implements <a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master/interface/ArrayAccess.html">\ArrayAccess</a></h4>
+        <hr />
+        <p><i>no description</i></p>
+
+
+
+        <h4 style="margin-top: 40px;"><a name="methods"></a>Methods</h4>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">void</span>                <a data-toggle="collapse" data-parent="mthd__construct" href="#mthd__construct">
+                        <strong>__construct</strong>
+                    </a>(string <u>$name</u>, \Fwk\Di\Container <u>$services</u> = null)
+                    </h4>
+                </div>
+                <div id="mthd__construct" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Constructor</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">boolean</span>                <a data-toggle="collapse" data-parent="mthdexists" href="#mthdexists">
+                        <strong>exists</strong>
+                    </a>(string <u>$actionName</u>)
+                    </h4>
+                </div>
+                <div id="mthdexists" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Tells if an action is registered</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">\Fwk\Core\Application</span>                <a data-toggle="collapse" data-parent="mthdfactory" href="#mthdfactory">
+                        <strong>Application::factory</strong>
+                    </a>(string <u>$name</u>, \Fwk\Di\Container <u>$services</u> = null)
+                    </h4>
+                </div>
+                <div id="mthdfactory" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Instanciates a new Application
+                            (useful for chaining)</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">\Fwk\Core\ActionProxy</span>                <a data-toggle="collapse" data-parent="mthdget" href="#mthdget">
+                        <strong>get</strong>
+                    </a>(string <u>$actionName</u>)
+                    </h4>
+                </div>
+                <div id="mthdget" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Returns the ActionProxy of a registered action</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">array</span>                <a data-toggle="collapse" data-parent="mthdgetActions" href="#mthdgetActions">
+                        <strong>getActions</strong>
+                    </a>()
+                    </h4>
+                </div>
+                <div id="mthdgetActions" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Returns the list (array) of all registered actions (keys) and their
+                            according ActionProxy (values)</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">string</span>                <a data-toggle="collapse" data-parent="mthdgetDefaultAction" href="#mthdgetDefaultAction">
+                        <strong>getDefaultAction</strong>
+                    </a>()
+                    </h4>
+                </div>
+                <div id="mthdgetDefaultAction" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Returns the default action name (if any)</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">string</span>                <a data-toggle="collapse" data-parent="mthdgetName" href="#mthdgetName">
+                        <strong>getName</strong>
+                    </a>()
+                    </h4>
+                </div>
+                <div id="mthdgetName" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Returns the Application name</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">\Fwk\Di\Container</span>                <a data-toggle="collapse" data-parent="mthdgetServices" href="#mthdgetServices">
+                        <strong>getServices</strong>
+                    </a>()
+                    </h4>
+                </div>
+                <div id="mthdgetServices" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Returns the Services Container</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <a data-toggle="collapse" data-parent="mthdoffsetExists" href="#mthdoffsetExists">
+                            <strong>offsetExists</strong>
+                        </a>(<u>$actionName</u>)
+                    </h4>
+                </div>
+                <div id="mthdoffsetExists" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><i>no description</i></p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <a data-toggle="collapse" data-parent="mthdoffsetGet" href="#mthdoffsetGet">
+                            <strong>offsetGet</strong>
+                        </a>(<u>$actionName</u>)
+                    </h4>
+                </div>
+                <div id="mthdoffsetGet" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><i>no description</i></p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <a data-toggle="collapse" data-parent="mthdoffsetSet" href="#mthdoffsetSet">
+                            <strong>offsetSet</strong>
+                        </a>(<u>$actionName</u>, <u>$proxy</u>)
+                    </h4>
+                </div>
+                <div id="mthdoffsetSet" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><i>no description</i></p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <a data-toggle="collapse" data-parent="mthdoffsetUnset" href="#mthdoffsetUnset">
+                            <strong>offsetUnset</strong>
+                        </a>(<u>$actionName</u>)
+                    </h4>
+                </div>
+                <div id="mthdoffsetUnset" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><i>no description</i></p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">\Fwk\Core\Application</span>                <a data-toggle="collapse" data-parent="mthdregister" href="#mthdregister">
+                        <strong>register</strong>
+                    </a>(string <u>$actionName</u>, \Fwk\Core\ActionProxy <u>$proxy</u>)
+                    </h4>
+                </div>
+                <div id="mthdregister" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Registers an action</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">mixed</span>                <a data-toggle="collapse" data-parent="mthdrun" href="#mthdrun">
+                        <strong>run</strong>
+                    </a>(\Symfony\Component\HttpFoundation\Request <u>$request</u> = null)
+                    </h4>
+                </div>
+                <div id="mthdrun" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Runs the Application for a defined (or new) HTTP request</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">mixed</span>                <a data-toggle="collapse" data-parent="mthdrunAction" href="#mthdrunAction">
+                        <strong>runAction</strong>
+                    </a>(\Fwk\Core\Context <u>$context</u>)
+                    </h4>
+                </div>
+                <div id="mthdrunAction" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><i>no description</i></p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">\Fwk\Core\Application</span>                <a data-toggle="collapse" data-parent="mthdsetDefaultAction" href="#mthdsetDefaultAction">
+                        <strong>setDefaultAction</strong>
+                    </a>(string <u>$defaultAction</u>)
+                    </h4>
+                </div>
+                <div id="mthdsetDefaultAction" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Defines a default action. Basically the one which answers on /</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">\Fwk\Core\Application</span>                <a data-toggle="collapse" data-parent="mthdsetServices" href="#mthdsetServices">
+                        <strong>setServices</strong>
+                    </a>(\Fwk\Di\Container <u>$services</u>)
+                    </h4>
+                </div>
+                <div id="mthdsetServices" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Defines a Services Container</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" style="border-top:none;">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i>public</i>
+                        <span class="pull-right">\Fwk\Core\Application</span>                <a data-toggle="collapse" data-parent="mthdunregister" href="#mthdunregister">
+                        <strong>unregister</strong>
+                    </a>(string <u>$actionName</u>)
+                    </h4>
+                </div>
+                <div id="mthdunregister" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Unregisters an action</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4 style="margin-top: 40px;"><a name="properties"></a>Properties</h4>
+        <ul class="properties list-unstyled">
+            <li>
+                <i>protected</i>
+                <span class="pull-right">string</span>
+                <strong>$name</strong>
+                <p>Application name</p>
+
+
+            </li>
+            <li>
+                <i>protected</i>
+                <span class="pull-right">array</span>
+                <strong>$actions</strong>
+                <p>List of registered actions</p>
+
+
+            </li>
+            <li>
+                <i>protected</i>
+                <span class="pull-right">\Fwk\Di\Container</span>
+                <strong>$services</strong>
+                <p>Services container (Di)</p>
+
+
+            </li>
+            <li>
+                <i>protected</i>
+                <span class="pull-right">string</span>
+                <strong>$defaultAction</strong>
+                <p>The default action (i.e the "homepage")</p>
+
+
+            </li>
+        </ul>
+
+
+        </div>
+    </div>
+    <div class="row" style="clear:both;margin-top:30px;">
+        <div class="col-md-12">
+            <ol class="breadcrumb" id="apiNav">
+                <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/master">Core</a></li>
+                <li><a href="/~neiluj/nitronet/public/index.php/fwk/Core/api/master">API Doc</a></li>
+                <li class="active">Fwk/Core/Application</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../app/site/assets/js/jquery-1.11.2.min.js"></script>
+<script src="../app/site/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
+        $('#docTabs a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+</script>
+</body>
+</html>

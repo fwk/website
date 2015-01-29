@@ -1,0 +1,189 @@
+body {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+
+#mainmenu {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+#submenu {
+    border-radius: 0;
+    padding: 0 0;
+}
+#submenu .container {
+    padding-left: 0;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon/fonts/icomoon.eot?zc22vv');
+    src:url('../fonts/icomoon/fonts/icomoon.eot?#iefixzc22vv') format('embedded-opentype'),
+    url('../fonts/icomoon/fonts/icomoon.woff?zc22vv') format('woff'),
+    url('../fonts/icomoon/fonts/icomoon.ttf?zc22vv') format('truetype'),
+    url('../fonts/icomoon/fonts/icomoon.svg?zc22vv#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-settings:before {
+    content: "\e600";
+}
+
+.icon-diamond:before {
+    content: "\e601";
+}
+
+.icon-paperplane:before {
+    content: "\e602";
+}
+
+.icon-data:before {
+    content: "\e603";
+}
+
+.icon-megaphone:before {
+    content: "\e604";
+}
+
+.icon-lab:before {
+    content: "\e605";
+}
+
+.icon-clip:before {
+    content: "\e606";
+}
+
+.icon-github:before {
+    content: "\eab1";
+}
+
+#mainmenu ul li a {
+    text-align: center;
+    padding: 10px 25px 5px 25px;
+}
+
+#mainmenu ul li a span.icon {
+    font-size: 2em;
+    display: block;
+}
+
+.version-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+.version-btn small {
+    color: #aaa;
+    display: block;
+}
+
+#submenu.navbar {
+    min-height: auto;
+}
+#submenu ul li a {
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+}
+
+#submenu .form-control {
+    padding: 4px 10px;
+    height: auto;
+    min-width: 250px;
+}
+
+a.core span.icon {
+    color: #93C54B;
+}
+ a.db span.icon {
+    color: #4BAFC5;
+}
+a.di span.icon {
+    color: #C54B4B;
+}
+a.xml span.icon {
+    color: #ECF03B;
+}
+a.form span.icon {
+    color: #A95ADA;
+}
+a.cache span.icon {
+    color: #4BAFC5;
+}
+a.events span.icon {
+    color: #F8A01C;
+}
+
+b.core {
+    color: #93C54B;
+}
+b.db {
+    color: #4BAFC5;
+}
+b.di {
+    color: #C54B4B;
+}
+b.xml {
+    color: #ECF03B;
+}
+b.form {
+    color: #A95ADA;
+}
+b.cache {
+    color: #4BAFC5;
+}
+b.events {
+    color: #F8A01C;
+}
+
+#main {
+    margin-top: 40px;
+}
+
+.tooltip {
+    min-width: 100px;
+    max-width: none;
+}
+.tooltip-inner {
+    text-transform: none;
+    max-width: none;
+}
+
+ul.classes {
+    font-size: 12px;
+    text-transform: none;
+    overflow-y: auto;
+    max-height: 600px;
+}
+#main.core a {
+    color: #93C54B;
+}
+
+.panel-title {
+    text-transform: none !important;
+    border-radius: 0;
+}
+.panel-body, .panel-heading, .panel, .panel-group {
+    border-radius: 0 !important;
+}
+.panel-group {
+    margin-bottom: 0;
+    border-radius: 0;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependency-injection>
+    <class-definition name="fwk.ds.apidoc" class="Nitronet\FwkApiDocDataSource" shared="true">
+        <argument>:fwk.build.dir</argument>
+        <argument>@fwk.cache</argument>
+    </class-definition>
+    <class-definition name="fwk.ds.doc" class="Nitronet\FwkDocumentationDataSource" shared="true">
+        <argument>:fwk.build.dir</argument>
+    </class-definition>
+    <class-definition name="fwk.cache" class="Fwk\Cache\Manager" shared="true">
+        <argument>@fwk.cache.adapter</argument>
+    </class-definition>
+    <class-definition name="fwk.cache.adapter" class="Fwk\Cache\Adapters\Filesystem" shared="true">
+        <argument>:assetic.cache.directory</argument>
+    </class-definition>
+</dependency-injection>

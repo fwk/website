@@ -1,0 +1,50 @@
+[fwk]
+consoleService = consoleApp
+sessionService = session
+
+[services]
+; ----------------------
+; Database Configuration
+;
+; - db.hostname : mysql server hostname
+; - db.user : mysql user
+; - db.password : mysql password
+; - db.driver : this should be "pdo_mysql" (others might work but haven't been
+; : tested yet.
+; - db.database : mysql database name
+; ----------------------
+db.hostname = localhost
+db.user = forgery
+db.password = forgery
+db.driver = pdo_mysql
+db.database = forgery
+twig.templates.dir = :packageDir/../site/pages
+twig.debug = true
+twig.cache.dir = :packageDir/../cache
+assetic.assets.directory = :packageDir/FwkWWW/templates/assets
+assetic.debug = false
+assetic.action.name = Asset
+assetic.use.cache = true
+assetic.cache.directory = :packageDir/../cache
+; could be content or modification 
+assetic.cache.strategy = content
+cms.site.path = :packageDir/../site
+fwk.build.dir = :packageDir/../fwk-build
+phpdoc.bin = :packageDir/../phpDoc.phar
+
+; --------------------
+; Comments
+;
+; --------------------
+comments.service = comments
+comments.services.database = db
+comments.services.session = session
+comments.services.renderer = formRenderer
+comments.tables.threads = comments_threads
+comments.tables.comments = comments
+comments.entities.thread = Nitronet\Fwk\Comments\Model\Thread
+comments.entities.comment = Nitronet\Fwk\Comments\Model\Comment
+comments.auto.approve = true
+comments.auto.thread = true
+comments.date.format = Y-m-d H:i:s
+comments.form = Nitronet\Comments\Forms\AnonymousCommentForm

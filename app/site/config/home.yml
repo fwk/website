@@ -1,0 +1,12 @@
+template: home.twig
+template_ajax: home_ajax.twig
+template_widget: home_widget.twig
+active: true
+redirect: ~
+http_code: 200
+cache:
+    enable: true
+    lifetime: 3600
+config: ~
+listeners: ~
+defaults: ~

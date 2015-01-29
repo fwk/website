@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+    <package id="Core">
+        <name>Fwk\Core</name>
+        <description>Powerful Application Framework</description>
+        <repository>https://github.com/fwk/Core.git</repository>
+        <intro>INTRO.md</intro>
+        <docs>docs/</docs>
+        <icon>glyphicon glyphicon-cog</icon>
+        <versions>master</versions>
+        <gists>
+            <gist>
+                <title>Simplest Hello World</title>
+                <embed>https://gist.github.com/neiluJ/6b9debf143d4c7a06146.js</embed>
+                <doc>examples/simple</doc>
+            </gist>
+        </gists>
+    </package>
+    <package id="Db">
+        <name>Fwk\Db</name>
+        <description>Database ORM</description>
+        <repository>https://github.com/fwk/Db.git</repository>
+        <intro>INTRO.md</intro>
+        <docs>docs/</docs>
+        <icon>glyphicon glyphicon-hdd</icon>
+        <versions>master,fix-lib</versions>
+    </package>
+    <package id="Di">
+        <name>Fwk\Di</name>
+        <description>Painless Dependency Injection</description>
+        <repository>https://github.com/fwk/Di.git</repository>
+        <intro>INTRO.md</intro>
+        <docs>docs/</docs>
+        <icon>glyphicon glyphicon-play-circle</icon>
+        <versions>master</versions>
+    </package>
+    <package id="Xml">
+        <name>Fwk\Xml</name>
+        <description>Xml Mapping and Validation</description>
+        <repository>https://github.com/fwk/Xml.git</repository>
+        <intro>INTRO.md</intro>
+        <docs>docs/</docs>
+        <icon>glyphicon glyphicon-sound-stereo</icon>
+        <versions>master</versions>
+    </package>
+    <package id="Form">
+        <name>Fwk\Form</name>
+        <description>HTML Form utility</description>
+        <repository>https://github.com/fwk/Form.git</repository>
+        <intro>INTRO.md</intro>
+        <docs>docs/</docs>
+        <icon>glyphicon glyphicon-list</icon>
+        <versions>master</versions>
+    </package>
+    <package id="Cache">
+        <name>Fwk\Cache</name>
+        <description>Caching utility</description>
+        <repository>https://github.com/fwk/Cache.git</repository>
+        <intro>INTRO.md</intro>
+        <docs>docs/</docs>
+        <icon>glyphicon glyphicon-road</icon>
+        <versions>master</versions>
+    </package>
+    <package id="Events">
+        <name>Fwk\Events</name>
+        <description>Event-Oriented Programming made easy</description>
+        <repository>https://github.com/fwk/Events.git</repository>
+        <intro>INTRO.md</intro>
+        <docs>docs/</docs>
+        <icon>glyphicon glyphicon-flash</icon>
+        <versions>master</versions>
+    </package>
+</packages>

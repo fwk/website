@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+
+    {% for asset in _helper.asset([
+    '+bower/bootstrap/css/bootstrap-sandstone.min.css'
+    ], 'cssrewrite', 'bootstrap') %}
+        <link rel="stylesheet" href="{{ asset }}">
+    {% endfor %}
+
+    <!--[if lt IE 9]>
+    {% for asset in _helper.asset([
+    '+bower/js/html5shiv.min.js',
+    ], null, 'html5shiv') %}
+    <script type="text/javascript" src="{{ asset }}"></script>
+    {% endfor %}
+    <![endif]-->
+
+    {% for asset in _helper.asset([
+    '+bower/css/site.css'
+    ], 'cssrewrite', 'site') %}
+        <link rel="stylesheet" href="{{ asset }}">
+    {% endfor %}
+    {% block headertag %}{% endblock %}
+</head>
+<body>
+<div class="navbar navbar-default" id="mainmenu">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="./index.html" class="navbar-brand">Fwk</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a href="./package-intro.html" class="core"><span class="icon icon-settings"></span> Core</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="db"><span class="icon icon-data"></span> Db</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="di"><span class="icon icon-diamond"></span> Di</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="xml"><span class="icon icon-lab"></span> Xml</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="form"><span class="icon icon-clip"></span> Form</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="cache"><span class="icon icon-paperplane"></span> Cache</a>
+                </li>
+                <li class="">
+                    <a href="./package-intro.html" class="events"><span class="icon icon-megaphone"></span> Events</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="./about.html" id="about">About</a>
+                </li>
+                <li>
+                    <a href="./blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="./status.html">Discuss</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% block contents %}{% endblock %}
+
+
+{% for asset in _helper.asset([
+'+bower/js/jquery-1.11.2.min.js',
+'+bower/bootstrap/js/bootstrap.min.js'
+], null, 'jq-bootstrap') %}
+    <script type="text/javascript" src="{{ asset }}"></script>
+{% endfor %}
+
+{% block footertag %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,97 @@
+name: FwkIO
+namespace: FwkIO
+title: fwk.io website
+description: The home of Fwk
+homepage: home
+errorpage: error
+directories: 
+    pages: ./pages
+    sources: ../FwkIO
+    assets: ./assets
+    forms: ./forms
+    cache: ../../cache
+    config: ./config
+domain:
+    name: fwk.io
+    force: true
+config: ~
+services:
+    - ./services.xml
+commands: 
+    - FwkIO\Commands\FwkFetchCommand
+urls:
+    "/fwk/:package/api/:version$":
+        page: fwk/apidoc
+        parameters:
+            package:
+                required: true
+            version:
+                required: false
+                default: master
+    "/fwk/:package/api/:version/:type/:className.html$":
+        page: fwk/apidoc-class
+        parameters:
+            package:
+                required: true
+            version:
+                required: true
+                default: master
+            type:
+                required: true
+                regex: class|interface
+            className:
+                required: true
+                regex: .*
+    "/fwk/:package/doc/:version$":
+        page: fwk/doc
+        parameters:
+            package:
+                required: true
+            version:
+                required: false
+                default: master
+    "/fwk/:package/doc/:version/:docPage$":
+            page: fwk/doc
+            parameters:
+                package:
+                    required: true
+                version:
+                    required: false
+                    default: master
+                docPage:
+                    required: true
+                    regex: .*
+    "/fwk/:package/board$":
+        page: fwk/board
+        parameters:
+            package:
+                required: true
+    "/fwk/:package/:version$":
+        page: fwk/intro
+        parameters:
+            package:
+                required: true
+            version:
+                required: false
+                default: master
+    "/:page$":
+        parameters:
+            page:
+                required: false
+                regex: .*
+page_config:
+    active: true
+    cache:
+        public: true
+        enable: false
+        lifetime: 3600
+    config: ~
+    listeners: ~
+    defaults: ~
+    datasources:
+        packages: 
+            class: FwkIO\CMF\FwkPackagesDataSource
+            #service: serviceName
+            constructor:
+                - :packageDir/site/fwk-packages.xml
+                - @fwk.cache

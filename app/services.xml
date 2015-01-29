@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependency-injection>
+    <ini category="services">:baseDir/config.ini</ini>
+    
+    <!--
+        CONSOLE
+    -->
+    <class-definition name="consoleApp" class="Symfony\Component\Console\Application" shared="true" />
+
+    <!--
+    DATABASE & DAOs
+    -->
+    <array-definition name="db.config">
+        <param key="dbname">:db.database</param>
+        <param key="user">:db.user</param>
+        <param key="password">:db.password</param>
+        <param key="driver">:db.driver</param>
+        <param key="host">:db.hostname</param>
+    </array-definition>
+
+    <class-definition name="db" class="Fwk\Db\Connection" shared="true">
+        <argument>@db.config</argument>
+    </class-definition>
+
+</dependency-injection>

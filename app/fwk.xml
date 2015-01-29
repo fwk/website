@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fwk id="TestApp" version="1.0-dev">
+    <ini>:baseDir/config.ini</ini>
+    
+    <services xml=":baseDir/services.xml" />
+    
+    <listener class="Fwk\Core\Components\ErrorReporterListener" />
+    <listener class="Fwk\Core\Components\SessionListener">
+        <param>:sessionService</param>
+    </listener>
+
+    <listener class="Fwk\Core\Components\ConsoleListener">
+        <param>consoleApp</param>
+    </listener>
+    
+    <result-types>
+        <result-type
+            name="php"
+            class="Fwk\Core\Components\ResultType\PhpTemplateResultType">
+            <param name="templatesDir">:packageDir/Nitronet\Fwk\CMF/templates/php</param>
+        </result-type>
+    </result-types>
+</fwk>
