@@ -1,5 +1,6 @@
 body {
     font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    background-color: #eee;
 }
 
 #mainmenu {
@@ -7,9 +8,15 @@ body {
     border-radius: 0;
 }
 
+#mainmenu a:active {
+    background-color: #393A35;
+}
+
 #submenu {
     border-radius: 0;
     padding: 0 0;
+    border:none;
+    border-color:transparent;
 }
 #submenu .container {
     padding-left: 0;
@@ -153,8 +160,147 @@ b.events {
     color: #F8A01C;
 }
 
+#main.core a {
+    color: #93C54B;
+}
+
+#submenu.di {
+    background-color: #C54B4B;
+}
+
+#submenu.di a {
+    color: #7B4444;
+}
+
+#submenu.di ul.nav>li>a:hover {
+    color: #fff;
+}
+
+#submenu.di li.active a, #submenu.di .open>a {
+    background-color: #B74141;
+    color: #fff;
+}
+
+#main.di a {
+    color: #C54B4B;
+}
+
+
+#submenu.db {
+    background-color: #4BAFC5;
+}
+
+#submenu.db a {
+    color: #427A87;
+}
+
+#submenu.db ul.nav>li>a:hover {
+    color: #fff;
+}
+
+#submenu.db li.active a, #submenu.db .open>a {
+    background-color: #439BAE;
+    color: #fff;
+}
+
+#main.db a {
+    color: #4BAFC5;
+}
+
+#submenu.xml {
+    background-color: #DFE343;
+}
+
+#submenu.xml a {
+    color: #A8AB29;
+}
+
+#submenu.xml ul.nav>li>a:hover {
+    color: #fff;
+}
+
+#submenu.xml li.active a, #submenu.xml .open>a {
+    background-color: #C5C939;
+    color: #fff;
+}
+
+#main.xml a {
+    color: #C5C939;
+}
+
+
+#submenu.form {
+    background-color: #A95ADA;
+}
+
+#submenu.form a {
+    color: #70476C;
+}
+
+#submenu.form ul.nav>li>a:hover {
+    color: #fff;
+}
+
+#submenu.form li.active a, #submenu.form .open>a {
+    background-color: #9A52C8;
+    color: #fff;
+}
+
+#main.form a {
+    color: #A95ADA;
+}
+
+/* F8A01C */
+#submenu.events {
+    background-color: #F8A01C;
+}
+
+#submenu.events a {
+    color: #926A29;
+}
+
+#submenu.events ul.nav>li>a:hover {
+    color: #fff !important;
+}
+
+#submenu.events li.active a, #submenu.events .open>a {
+    background-color: #E79419;
+    color: #fff;
+}
+
+#main.events a {
+    color: #F8A01C;
+}
+
+
+
+#submenu.cache {
+    background-color: #4BAFC5;
+}
+
+#submenu.cache a {
+    color: #427A87;
+}
+
+#submenu.cache ul.nav>li>a:hover {
+    color: #fff;
+}
+
+#submenu.cache li.active a, #submenu.cache .open>a {
+    background-color: #439BAE;
+    color: #fff;
+}
+
+#main.cache a {
+    color: #4BAFC5;
+}
+
+#page {
+    background-color: #fff;
+    padding-bottom: 40px;
+}
 #main {
-    margin-top: 40px;
+    padding-top: 40px;
 }
 
 .tooltip {
@@ -171,9 +317,6 @@ ul.classes {
     text-transform: none;
     overflow-y: auto;
     max-height: 600px;
-}
-#main.core a {
-    color: #93C54B;
 }
 
 .panel-title {
@@ -290,4 +433,13 @@ h5 {
 
 .breadcrumb {
     text-transform: none;
+}
+
+#footer {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: solid 1px #ccc;
+    font-size: 0.9em;
+
 }

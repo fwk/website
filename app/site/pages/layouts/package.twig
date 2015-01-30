@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav">
                 <li{% if query.page == 'package/intro' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/intro', package: query.package|lower, version: query.version|default("master")}) }}">Introduction</a></li>
                 <li{% if query.page == 'package/doc' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/doc', package: query.package|lower, version: query.version|default("master")}) }}">Documentation</a></li>
-                <li{% if query.page == 'package/apidoc' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/apidoc', package: query.package|lower, version: query.version|default("master")}) }}">API Documentation</a></li>
+                <li{% if query.page == 'package/apidoc' or query.page == 'package/apidoc-class' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/apidoc', package: query.package|lower, version: query.version|default("master")}) }}">API Documentation</a></li>
                 <li{% if query.page == 'package/status' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/status', package: query.package|lower, version: query.version|default("master")}) }}">Build Status</a></li>
                 <li>
                     <a href="{{ pkg.url }}" data-toggle="tooltip" data-placement="bottom" title="View on Github"><span class="icon icon-github" style="font-size: 16px; vertical-align: middle"></span></a>

@@ -44,6 +44,10 @@ class FwkDocumentationDataSource extends FwkPackagesDataSource
 
     public function intro($package, $version = "master")
     {
+        if (empty($version)) {
+            $version = "master";
+        }
+
         $docFile = $this->buildDir
             . DIRECTORY_SEPARATOR
             . ucfirst(strtolower($package))

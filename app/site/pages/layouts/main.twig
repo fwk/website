@@ -50,14 +50,38 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li{% if query.page == 'about' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about'}) }}">About</a></li>
-                <li{% if query.page == 'blog' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'blog'}) }}">Blog</a></li>
+               {# <li{% if query.page == 'blog' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'blog'}) }}">Blog</a></li> #}
             </ul>
         </div>
     </div>
 </div>
 
+<section id="page">
 {% block contents %}{% endblock %}
+</section>
 
+<section id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-4">
+                &copy; 2011-2015 <a href="http://nitronet.org">Nitronet</a> / <a href="http://neiluj.pro">Julien Ballestracci</a>.
+            </div>
+
+            <div class="col col-md-3">
+<i><b>F</b>rame<b>W</b>or<b>K</b></i>
+            </div>
+            <div class="col col-md-5" style="text-align: right">
+                <a class="twitter-follow-button"
+                   href="https://twitter.com/phpfwk"
+                   data-show-count="true"
+                   data-lang="en">
+                    Follow @phpfwk
+                </a>
+                <script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% for asset in _helper.asset([
 '+bower/js/jquery-1.11.2.min.js',
@@ -66,6 +90,9 @@
     <script type="text/javascript" src="{{ asset }}"></script>
 {% endfor %}
 
+<script type="text/javascript">
+
+</script>
 {% block footertag %}{% endblock %}
 </body>
 </html>

@@ -2,7 +2,7 @@
 <dependency-injection>
     <class-definition name="fwk.ds.apidoc" class="FwkIO\CMF\FwkApiDocDataSource" shared="true">
         <argument>:fwk.build.dir</argument>
-        <!--  <argument>@fwk.cache</argument> -->
+        <argument>@fwk.cache</argument>
     </class-definition>
     <class-definition name="fwk.ds.doc" class="FwkIO\CMF\FwkDocumentationDataSource" shared="true">
         <argument>:fwk.build.dir</argument>
