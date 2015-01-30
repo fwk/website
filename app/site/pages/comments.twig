@@ -1,0 +1,61 @@
+<section class="comment-list">
+    {% for comment in comments %}
+        {% if ((type == "threaded" and comment.parentId == null) or (type == "normal")) %}
+            <article id="comment-id-1" class="comment-item">
+                <section class="comment-body">
+                    <header class="">
+                        <img src="http://0.gravatar.com/avatar/{{ md.five(comment.authorEmail) }}?s=50&d=identicon" title="{{ comment.authorName }}" class="avatar img-circle" alt="{{ comment.authorName }}">
+                        {% if comment.authorUrl != null %}
+                            <a href="{{ comment.authorUrl }}" class="author">{{ comment.authorName }}</a>
+                        {% else %}
+                            <b class="author">{{ comment.authorName }}</b>
+                        {% endif %}
+                        {% if type == "normal" and comment.parentId != null %}<i>in reply to #{{ comment.parentId }}</i>{% endif %}
+                        <time datetime="{{ comment.createdOn|date('Y-m-d\TH:i:sP') }}" class="text-muted m-l-sm">{{ comment.createdOn|date('l, d-M-y H:i:s T') }}</time>
+                    </header>
+                    <div class="contents">
+                        <div>{{ comment.contents }}</div>
+                    </div>
+                </section>
+                {% if type == "threaded" %}
+                    {% set replies = [] %}
+                    {% for reply in comments %}
+                        {% if reply.parentId == comment.id %}
+                            {% set idx = reply.id %}
+                            {% set replies = replies|merge([reply]) %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if replies|length > 0 %}
+                        <section class="replies">
+                            {% for idx, reply in replies %}
+                                <article id="comment-id-2" class="comment-item">
+                                    <section class="">
+                                        <img src="http://0.gravatar.com/avatar/84e7049a536023a927e0b13c7e254bff?s=25&d=identicon" class="avatar img-circle" alt="{{ comment.authorName }}">
+                                        <div class="contents">
+                                            {% if reply.authorUrl != null %}
+                                                <a href="{{ reply.authorUrl }}" class="author">{{ reply.authorName }}</a>:
+                                            {% else %}
+                                                <b class="author">{{ reply.authorName }}</b>:
+                                            {% endif %}
+                                            {{ reply.contents }}
+                                            <time datetime="{{ reply.createdOn|date('Y-m-d\TH:i:sP') }}" class="text-muted m-l-sm">{{ reply.createdOn|date('l, d-M-y H:i:s T') }}</time>
+                                        </div>
+                                    </section>
+                                </article>
+                            {% endfor %}
+                        </section>
+                    {% endif %}
+                {% endif %}
+                <button type="button" class="reply-btn btn btn-default btn-xs" title="reply to this comment"><i class="glyphicon glyphicon-share-alt"></i></button>
+            </article>
+        {% endif %}
+    {% endfor %}
+    <article id="comment-box" class="comment-item">
+        <section class="comment-body">
+            <header class="">
+                <img src="http://0.gravatar.com/avatar/89742649823?s=50&d=mystery" class="avatar img-circle" alt="...">
+                <b class="author">You must be signed in to add a comment. <a href="#">Sign in now!</a></b>
+            </header>
+        </section>
+    </article>
+</section>

@@ -187,3 +187,107 @@ ul.classes {
     margin-bottom: 0;
     border-radius: 0;
 }
+
+.comment-list {
+    position: relative;
+    padding-bottom:40px;
+    list-style: none;
+}
+.comment-list .comment-item {
+    display:block;
+    padding-bottom:20px;
+}
+.comment-list .comment-item header {
+    line-height: 45px;
+}
+.comment-list .comment-item .avatar {
+    float:left;
+}
+.comment-list .comment-item .author {
+    font-weight:bold;
+    margin-left:5px;
+}
+.comment-list .comment-item .comment-body .contents {
+    margin-left: 55px;
+    display:block;
+    clear:both;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
+.comment-list .replies {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+.comment-list .replies .comment-item {
+    padding-bottom:0px;
+    margin-top: 10px;
+}
+.comment-list .replies .comment-item header {
+    padding:0;
+    margin:0;
+    line-height:normal;
+}
+.comment-list .replies .comment-item time {
+    font-size:12px;
+}
+.comment-list .replies .comment-item .author {
+    display:inline;
+    margin-left:0;
+    vertical-align: middle;
+}
+.comment-list .replies .comment-item .contents {
+    display: block;
+    margin-left: 30px;
+    vertical-align: middle;
+}
+.comment-list .reply-btn {
+    padding: 0 5px;
+    margin-left: 14px;
+    visibility: hidden;
+}
+.comment-list .comment-item:hover .reply-btn {
+    visibility: visible;
+}
+.comment-list #comment-box {
+    background-color: #eee;
+    border-radius: 22px;
+    padding-bottom:0;
+}
+.comment-list:before {
+    position: absolute;
+    top: 0;
+    bottom: 35px;
+    left: 25px;
+    width: 1px;
+    background: #EEEEEE;
+    content: '';
+    z-index:-999;
+}
+
+.doc-summary {
+    padding-top:20px;
+}
+.doc-summary h5 i {
+    color: #999;
+}
+.doc-summary ul {
+    list-style-type: none;
+    list-style: none;
+    padding-left: 0px;
+}
+.doc-summary ul li ul {
+    padding-left: 30px;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+#docTabs a {
+    color: inherit !important;
+}
+
+.breadcrumb {
+    text-transform: none;
+}

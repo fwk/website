@@ -23,11 +23,11 @@ class FwkPackagesDataSource implements DataSource
     {
         $this->load();
         
-        if (!isset($this->packages[$name])) {
+        if (!isset($this->packages[ucfirst(strtolower($name))])) {
             throw new \RuntimeException('Package not found');
         }
         
-        return $this->packages[$name];
+        return $this->packages[ucfirst(strtolower($name))];
     }
     
     public function packages()
@@ -113,6 +113,7 @@ class FwkPackagesDataSource implements DataSource
                     ->addChildren(Path::factory('embed', 'embed', false))
                     ->addChildren(Path::factory('doc', 'doc', false))
                 )
+                ->addChildren(Path::factory('url', 'url', null))
         );
         
         return $map;

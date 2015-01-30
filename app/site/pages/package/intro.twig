@@ -1,0 +1,22 @@
+{% block title %}Fwk Package Intro{% endblock title %}
+
+{% extends "layouts/package.twig" %}
+
+{% block package_contents %}
+<section id="pkg_contents">
+    <div class="row">
+        <div class="col-lg-9">
+            {{ documentation.intro(query.package, query.version)|raw }}
+        </div>
+        <div class="col-lg-3">
+            <p>
+                <a class="btn btn-default" style="display:block" href="https://github.com/fwk/{{ query.package }}"><i class="glyphicon glyphicon-book"></i> View on Github.com</a>
+            </p>
+            <iframe src="//ghbtns.com/github-btn.html?user=fwk&amp;repo={{ query.package }}&amp;type=watch&amp;count=true"
+                    allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            <iframe src="//ghbtns.com/github-btn.html?user=fwk&amp;repo={{ query.package }}&amp;type=fork&amp;count=true"
+                    allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}

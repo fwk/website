@@ -30,7 +30,7 @@
 <div class="navbar navbar-default" id="mainmenu">
     <div class="container">
         <div class="navbar-header">
-            <a href="./index.html" class="navbar-brand">Fwk</a>
+            <a href="{{ _helper.url('PageView') }}" class="navbar-brand">Fwk</a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -40,39 +40,17 @@
         <div class="navbar-collapse collapse" id="navbar-main">
 
             <ul class="nav navbar-nav">
-                <li class="">
-                    <a href="./package-intro.html" class="core"><span class="icon icon-settings"></span> Core</a>
-                </li>
-                <li class="">
-                    <a href="./package-intro.html" class="db"><span class="icon icon-data"></span> Db</a>
-                </li>
-                <li class="">
-                    <a href="./package-intro.html" class="di"><span class="icon icon-diamond"></span> Di</a>
-                </li>
-                <li class="">
-                    <a href="./package-intro.html" class="xml"><span class="icon icon-lab"></span> Xml</a>
-                </li>
-                <li class="">
-                    <a href="./package-intro.html" class="form"><span class="icon icon-clip"></span> Form</a>
-                </li>
-                <li class="">
-                    <a href="./package-intro.html" class="cache"><span class="icon icon-paperplane"></span> Cache</a>
-                </li>
-                <li class="">
-                    <a href="./package-intro.html" class="events"><span class="icon icon-megaphone"></span> Events</a>
-                </li>
+                {% set packs = packages.packages() %}
+                {% for id, pkg in packs %}
+                    <li{% if query.package is defined and id|lower == query.package|lower %} class="active"{% endif %}>
+                        <a href="{{ _helper.url('PageView', {page: 'package/intro', package: id|lower}) }}" class="{{ id|lower }}"><span class="{{ pkg.icon }}"></span> {{ id }}</a>
+                    </li>
+                {% endfor %}
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                    <a href="./about.html" id="about">About</a>
-                </li>
-                <li>
-                    <a href="./blog.html">Blog</a>
-                </li>
-                <li>
-                    <a href="./status.html">Discuss</a>
-                </li>
+                <li{% if query.page == 'about' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about'}) }}">About</a></li>
+                <li{% if query.page == 'blog' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'blog'}) }}">Blog</a></li>
             </ul>
         </div>
     </div>

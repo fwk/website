@@ -1,0 +1,35 @@
+{% set pkg = packages.one(query.package) %}
+{% set class = apidoc.doc(query.package, query.className, query.type, query.version) %}
+
+{% import "package/apidoc-macros.twig" as doc %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>API &raquo; {{ query.className|replace('/', '\\') }} &CenterDot; {{ pkg.name }}: {{ pkg.description }} &CenterDot; Nitronet</title>
+  </head>
+  
+  <body>
+      <div id="pjax-container" data-pjax>
+{{ doc.classDoc(query.className, apidoc, query.type, query.package, query.version, _helper) }}
+<script type="text/javascript">
+        $(function() {
+            var updateMenuActive = function() {
+                var myElt = $('#apiClass').text();
+                $("ul.classes li.active").removeClass('active');
+                var itms = $("ul.classes li a:contains("+ myElt +")").filter(function()
+                      {
+                        return $(this).text() === myElt;
+                      }
+                );
+                itms.parent().addClass('active');
+                $('ol#apiNav li.active').html(myElt);
+                $('#'+ $('#apiType').text().toLowerCase() + 'Tab').tab('show');
+            };
+            
+            updateMenuActive();
+        });
+</script>
+      </div>
+  </body>
+</html>

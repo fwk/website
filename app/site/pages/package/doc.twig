@@ -1,0 +1,69 @@
+{% set docPage = documentation.doc((query.docPage == null ? 'README' : query.docPage), query.package, query.version) %}
+{% set docSummary = documentation.summary(query.package, query.version) %}
+
+{% block title %}Fwk Documentation{% endblock title %}
+
+{% extends "layouts/package.twig" %}
+
+{% block headertag %}
+    {% for asset in _helper.asset([
+    '+bower/js/jquery-pjax.js',
+    ], null, 'pjax') %}
+        <script type="text/javascript" src="{{ asset }}"></script>
+    {% endfor %}
+    {% for asset in _helper.asset([
+    '+bower/highlight/styles/github.css',
+    ], null, 'highlight-github') %}
+        <link rel="stylesheet" href="{{ asset }}">
+    {% endfor %}
+    {% for asset in _helper.asset([
+    '+bower/highlight/highlight.pack.js',
+    ], null, 'highlight') %}
+        <script type="text/javascript" src="{{ asset }}"></script>
+    {% endfor %}
+
+    <script type="text/javascript">
+        hljs.initHighlightingOnLoad();
+    </script>
+{% endblock %}
+
+
+{% block package_contents %}
+    <section id="pkg_contents">
+        <div class="row">
+            {% if docPage == false and docSummary == false %}
+            <div class="col-md-12 doc-summary">
+                {% else %}
+                <div class="col-md-3 doc-summary" data-pjax>
+                    {% endif %}
+                    {% if docSummary != false %}
+                        <h5><i class="glyphicon glyphicon-book pull-right"></i> Documentation Summary</h5>
+                        {{ documentation.restoreDocLinks(documentation.summary(query.package, query.version).content, query.package, query.version, _helper)|raw }}
+                    {% endif %}
+
+                    {% if docPage != false or docSummary != false %}
+                </div>
+                <div class="col-md-9" style="padding-top:0" id="pjax-container" data-pjax>
+                    {% endif %}
+                    {% if docPage != false %}
+                        {{ documentation.restoreDocLinks(docPage.content, query.package, query.version, _helper)|raw }}
+                    {% elseif docSummary == false %}
+                        <div class="alert alert-info" role="alert">
+                            <i class="glyphicon glyphicon-info-sign"></i> <strong>Sorry</strong>! The documentation for this
+                            package is still on the works. Please check the <a href="{{ _helper.url('PageView', {page: 'package/apidoc', package: query.package, version: query.version}) }}">API documentation</a> for more informations.
+                        </div>
+                    {% elseif docSummary != false %}
+                        <div class="alert alert-warning" role="alert" style="margin-top: 20px;">
+                            <i class="glyphicon glyphicon-warning-sign"></i> <strong>Sorry</strong>! This page isn't written
+                            or ready yet.
+                        </div>
+                    {% endif %}
+                    {% if docPage != false %}
+                        <hr />
+                        <h3><a name="comments"></a>Comments</h3>
+                        {{ _helper.embed('CommentsThread', {id: 'homepage', type: 'threaded'})|raw }}
+                    {% endif %}
+                </div>
+            </div>
+    </section>
+{% endblock %}

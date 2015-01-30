@@ -6,7 +6,7 @@
         <repository>https://github.com/fwk/Core.git</repository>
         <intro>INTRO.md</intro>
         <docs>docs/</docs>
-        <icon>glyphicon glyphicon-cog</icon>
+        <icon>icon icon-settings</icon>
         <versions>master</versions>
         <gists>
             <gist>
@@ -15,6 +15,7 @@
                 <doc>examples/simple</doc>
             </gist>
         </gists>
+        <url>https://github.com/fwk/Core</url>
     </package>
     <package id="Db">
         <name>Fwk\Db</name>
@@ -22,8 +23,9 @@
         <repository>https://github.com/fwk/Db.git</repository>
         <intro>INTRO.md</intro>
         <docs>docs/</docs>
-        <icon>glyphicon glyphicon-hdd</icon>
-        <versions>master,fix-lib</versions>
+        <icon>icon icon-data</icon>
+        <versions>master,fix-lib,docs</versions>
+        <url>https://github.com/fwk/Db</url>
     </package>
     <package id="Di">
         <name>Fwk\Di</name>
@@ -31,8 +33,9 @@
         <repository>https://github.com/fwk/Di.git</repository>
         <intro>INTRO.md</intro>
         <docs>docs/</docs>
-        <icon>glyphicon glyphicon-play-circle</icon>
+        <icon>icon icon-diamond</icon>
         <versions>master</versions>
+        <url>https://github.com/fwk/Di</url>
     </package>
     <package id="Xml">
         <name>Fwk\Xml</name>
@@ -40,8 +43,9 @@
         <repository>https://github.com/fwk/Xml.git</repository>
         <intro>INTRO.md</intro>
         <docs>docs/</docs>
-        <icon>glyphicon glyphicon-sound-stereo</icon>
+        <icon>icon icon-lab</icon>
         <versions>master</versions>
+        <url>https://github.com/fwk/Xml</url>
     </package>
     <package id="Form">
         <name>Fwk\Form</name>
@@ -49,8 +53,9 @@
         <repository>https://github.com/fwk/Form.git</repository>
         <intro>INTRO.md</intro>
         <docs>docs/</docs>
-        <icon>glyphicon glyphicon-list</icon>
+        <icon>icon icon-clip</icon>
         <versions>master</versions>
+        <url>https://github.com/fwk/Form</url>
     </package>
     <package id="Cache">
         <name>Fwk\Cache</name>
@@ -58,8 +63,9 @@
         <repository>https://github.com/fwk/Cache.git</repository>
         <intro>INTRO.md</intro>
         <docs>docs/</docs>
-        <icon>glyphicon glyphicon-road</icon>
+        <icon>icon icon-paperplane</icon>
         <versions>master</versions>
+        <url>https://github.com/fwk/Cache</url>
     </package>
     <package id="Events">
         <name>Fwk\Events</name>
@@ -67,7 +73,8 @@
         <repository>https://github.com/fwk/Events.git</repository>
         <intro>INTRO.md</intro>
         <docs>docs/</docs>
-        <icon>glyphicon glyphicon-flash</icon>
+        <icon>icon icon-megaphone</icon>
         <versions>master</versions>
+        <url>https://github.com/fwk/Events</url>
     </package>
 </packages>

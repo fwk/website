@@ -3,5 +3,37 @@
 {% extends "layouts/main.twig" %}
 
 {% block contents %}
-    coucou sqckn
+<div class="container" id="main">
+    <div class="row">
+        <div class="col-12" style="display:block; text-align:center; margin-bottom: 20px;">
+            <h1><b>Development Happiness</b> is now available for <a href="http://www.php.net">PHP</a> !</h1>
+            <h3>Tired of editing dozens of configuration files to fit a specific framework ? Your code looks like Java and works just fine but how could it be <i>simpler</i> ? Do you really need another <a href="http://hacklang.org/">pseudo</a>-<a href="http://zephir-lang.com/">language</a> to make your app <i>efficient</i> ? Don't look any further... <b>Fwk is here</b> !</h3>
+            <a href="{{ _helper.url('PageView', {page: 'about'}) }}" class="btn btn-primary" style="margin-top: 10px;">Learn More</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Packages</h2>
+            <div class="list-group">
+                {% set packs = packages.packages() %}
+                {% for id, package in packs %}
+                    <a href="{{ _helper.url('PageView', {page: 'package/intro', package: id|lower}) }}" class="list-group-item">
+                        <span class="{{ id|lower }} {{ package.icon }} pull-right"></span>
+                        <h4 class="list-group-item-heading">Fwk\<b class="{{ id|lower }}">{{ id }}</b></h4>
+                        <p class="list-group-item-text">{{ package.description }}</p>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {% set gist = packages.getRandomGist() %}
+            <h3>Random Example with <a href="{{ _helper.url('PageView', {page: 'package/intro', package: gist.pkgId|lower})|raw }}">{{ gist.package }}</a></h3>
+            <script src="{{ gist.embed }}"></script>
+            <p class="gist-desc">{{ gist.title }}{% if gist.doc != false %} <a href="{{ _helper.url('PageView', {page: 'package/doc', package: gist.pkgId|lower, docPage: gist.doc, version: 'master'})|raw }}" class="btn btn-default btn-xs">read more</a>{% endif %}</p>
+            <h3 style="margin-top:40px">Twitter</h3>
+            <a class="twitter-timeline" href="https://twitter.com/phpfwk" data-widget-id="476824044407250944">Tweets of @phpfwk</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+    </div>
+</div>
 {% endblock %}

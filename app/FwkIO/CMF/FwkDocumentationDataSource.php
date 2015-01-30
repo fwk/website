@@ -71,7 +71,7 @@ class FwkDocumentationDataSource extends FwkPackagesDataSource
             foreach ($matches[0] as $idx => $value) {
                 $finds[] = $value;
                 $repl[] = 'href="'. $viewHelper->url('PageView', array(
-                    'page'      => 'fwk/doc',
+                    'page'      => 'package/doc',
                     'package'   => $package,
                     'version'   => $version,
                     'docPage'   => $matches[1][$idx]

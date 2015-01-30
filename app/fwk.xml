@@ -12,7 +12,11 @@
     <listener class="Fwk\Core\Components\ConsoleListener">
         <param>consoleApp</param>
     </listener>
-    
+
+    <commands>
+        <command class="FwkIO\Commands\FwkFetchCommand" name="fwk:fetch" />
+    </commands>
+
     <result-types>
         <result-type
             name="php"
@@ -20,4 +24,17 @@
             <param name="templatesDir">:packageDir/Nitronet\Fwk\CMF/templates/php</param>
         </result-type>
     </result-types>
+
+    <actions>
+        <action name="CommentsThread" shortcut="Nitronet\Comments\Controllers\Thread:show">
+            <acl type="allow" role="" />
+            <result name="success" type="twig">
+                <param name="file">comments.twig</param>
+            </result>
+        </action>
+
+        <action name="CommentsCount" shortcut="Nitronet\Comments\Controllers\Thread:countComments">
+            <acl type="allow" role="" />
+        </action>
+    </actions>
 </fwk>

@@ -1,0 +1,82 @@
+{% macro link(className, type, package, version, _helper) %}
+{% spaceless %}{{ _helper.url("PageView", {page: "package/apidoc-class", package: package, type: type, version: version, className: className|trim('\\')|replace({'\\': '/'})}, true)|raw }}{% endspaceless %}
+{% endmacro %}
+
+{% macro listClasses(classes, type, package, version, active, _helper) %}
+<ul class="nav nav-pills nav-stacked classes" style="font-size: 12px;max-height: 500px; overflow-y: auto;">
+    {% for className, infos in classes %}
+                <li{% if active == className|trim('\\')|replace({'\\': '/'}) %} class="active"{% endif %}><a href="{{ _self.link(className, type, package, version, _helper) }}">{{ className|trim('\\') }}</a></li>
+    {% endfor %}
+            </ul>{% endmacro %}
+
+{% macro docblock(docblock, _helper) %}
+    <p>{{ docblock.description|default('<i>no description</i>')|raw }}</p>
+    {% if docblock.longDescription != '' and docblock.longDescription != docblock.description %}
+     <p>{{ docblock.longDescription|default('<i>no description</i>')|raw }}</p>
+    {% endif %}   
+{% endmacro %}
+
+{% macro classDoc(className, apidoc, type, package, version, _helper) %}
+{% set class = apidoc.doc(package, className, type, version) %}
+<h3>{% if class.abstract == 'true' %}Abstract {% endif %}
+    {% if class.final == 'true' %}Final {% endif %}
+    {% if type == 'class' %}<span id="apiType">Class</span> {% else %}<span id="apiType">Interface</span> {% endif %} 
+    <a href="{{ _self.link(className, type, package, version, _helper) }}" id="apiClass">{{ className|replace('/', '\\') }}</a>
+</h3>
+{% if class.extends != null %}<h4>&nbsp; &nbsp; &nbsp; &rBarr; extends <a href="{{ _self.link(class.extends, type, package, version, _helper) }}">{{ class.extends }}</a></h4>{% endif %}
+{% for interface in class.implements %}
+    <h4>&nbsp; &nbsp; &nbsp; {% if loop.first %} &rBarr; implements{% else %}&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;{% endif %} <a href="{{ _self.link(interface, "interface", package, version, _helper) }}">{{ interface }}</a></h4>
+{% endfor %}
+<hr />
+{{ _self.docblock(class.docblock, _helper) }}
+
+{% if class.methods|length %}
+<h4 style="margin-top: 40px;"><a name="methods"></a>Methods</h4>
+{% for method, infos in class.methods %} 
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default" style="border-top:none;">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <i>{{ infos.visibility }}</i>
+                {% if infos.docblock.tags['return'] is defined %}<span class="pull-right">{{ infos.docblock.tags['return'].type }}</span>{% endif %}
+                <a data-toggle="collapse" data-parent="mthd{{ method }}" href="#mthd{{ method }}">
+                    <strong>{% if infos.static == 'true' %}{{ class.name }}::{% endif %}{{ method }}</strong>
+                </a>({% for argument in infos.arguments %}{% if argument.type != null %}{{argument.type}} {% endif %}<u>{{ argument.name }}</u>{% if argument.default != null %} = {{argument.default}}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %})
+            </h4>
+        </div>
+        <div id="mthd{{ method }}" class="panel-collapse collapse">
+            <div class="panel-body">
+                {{ _self.docblock(infos.docblock, _helper) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if type == "class" and class.properties|length %}
+<h4 style="margin-top: 40px;"><a name="properties"></a>Properties</h4>
+<ul class="properties list-unstyled">
+{% for property, infos in class.properties %}
+    <li>
+        <i>{{ infos.visibility }}</i> 
+        {% if infos.docblock.tags['var'] is defined %}<span class="pull-right">{{ infos.docblock.tags['var'].type }}</span>{% endif %} 
+        <strong>{% if infos.static == 'true' %}{{ class.name }}::{% endif %}{{ property }}</strong> 
+        {{ _self.docblock(infos.docblock, _helper) }}
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if class.constants|length %}
+<h4 style="margin-top: 40px;"><a name="constants"></a>Constants</h4>
+<ul class="constants list-unstyled">
+{% for name, infos in class.constants %}
+<li>
+    <code>{{ class.name }}::{{ name }}</code> = {{ infos.value|trim('\'"') }} 
+    {{ _self.docblock(infos.docblock, _helper) }}
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endmacro %}

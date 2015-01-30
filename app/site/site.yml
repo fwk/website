@@ -17,19 +17,9 @@ domain:
 config: ~
 services:
     - ./services.xml
-commands: 
-    - FwkIO\Commands\FwkFetchCommand
 urls:
-    "/fwk/:package/api/:version$":
-        page: fwk/apidoc
-        parameters:
-            package:
-                required: true
-            version:
-                required: false
-                default: master
-    "/fwk/:package/api/:version/:type/:className.html$":
-        page: fwk/apidoc-class
+    "/:package/:version/api/:type/:className.html$":
+        page: package/apidoc-class
         parameters:
             package:
                 required: true
@@ -42,16 +32,16 @@ urls:
             className:
                 required: true
                 regex: .*
-    "/fwk/:package/doc/:version$":
-        page: fwk/doc
-        parameters:
-            package:
-                required: true
-            version:
-                required: false
-                default: master
-    "/fwk/:package/doc/:version/:docPage$":
-            page: fwk/doc
+    "/:package/:version/api$":
+            page: package/apidoc
+            parameters:
+                package:
+                    required: true
+                version:
+                    required: false
+                    default: master
+    "/:package/:version/doc/:docPage$":
+            page: package/doc
             parameters:
                 package:
                     required: true
@@ -61,13 +51,29 @@ urls:
                 docPage:
                     required: true
                     regex: .*
-    "/fwk/:package/board$":
-        page: fwk/board
-        parameters:
-            package:
-                required: true
-    "/fwk/:package/:version$":
-        page: fwk/intro
+    "/:package/:version/doc$":
+            page: package/doc
+            parameters:
+                package:
+                    required: true
+                version:
+                    required: false
+                    default: master
+    "/:package/:version/status$":
+                page: package/status
+                parameters:
+                    package:
+                        required: true
+                    version:
+                        required: false
+                        default: master
+    "/:package$":
+            page: package/intro
+            parameters:
+                package:
+                    required: true
+    "/:package/:version$":
+        page: package/intro
         parameters:
             package:
                 required: true
@@ -82,7 +88,7 @@ urls:
 page_config:
     active: true
     cache:
-        public: true
+        public: false
         enable: false
         lifetime: 3600
     config: ~
@@ -93,5 +99,5 @@ page_config:
             class: FwkIO\CMF\FwkPackagesDataSource
             #service: serviceName
             constructor:
-                - :packageDir/site/fwk-packages.xml
-                - @fwk.cache
+                - :packageDir/fwk-packages.xml
+                #- @fwk.cache

@@ -1,0 +1,3 @@
+datasources:
+        apidoc: 
+            service: fwk.ds.apidoc

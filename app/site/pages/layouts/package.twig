@@ -1,0 +1,55 @@
+{% block title %}Fwk Package Intro{% endblock title %}
+
+{% extends "layouts/main.twig" %}
+
+{% set pkg = packages.one(query.package) %}
+
+{% block contents %}
+<div class="navbar navbar-inverse {{ query.package|lower }}" id="submenu">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-sub">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-sub">
+            <ul class="nav navbar-nav">
+                <li{% if query.page == 'package/intro' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/intro', package: query.package|lower, version: query.version|default("master")}) }}">Introduction</a></li>
+                <li{% if query.page == 'package/doc' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/doc', package: query.package|lower, version: query.version|default("master")}) }}">Documentation</a></li>
+                <li{% if query.page == 'package/apidoc' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/apidoc', package: query.package|lower, version: query.version|default("master")}) }}">API Documentation</a></li>
+                <li{% if query.page == 'package/status' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'package/status', package: query.package|lower, version: query.version|default("master")}) }}">Build Status</a></li>
+                <li>
+                    <a href="{{ pkg.url }}" data-toggle="tooltip" data-placement="bottom" title="View on Github"><span class="icon icon-github" style="font-size: 16px; vertical-align: middle"></span></a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    {% set versions = packages.versions(query.package) %}
+                    <a href="#"{% if versions|length > 1 %} class="dropdown-toggle" data-toggle="dropdown"{% endif %}>{{ query.version|default("master") }}{% if versions|length > 1 %} <b class="caret"></b>{% endif %}</a>
+                    {% if versions|length > 1 %}
+                        <ul class="dropdown-menu">
+                            {% for v in versions %}
+                                <li><a href="{{ _helper.url('PageView', {page: query.page, package: query.package, version: v}) }}">{{ v }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                <li>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search Docs &amp; API">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container {{ query.package|lower }}" id="main">
+    {% block package_contents %}{% endblock %}
+</div>
+{% endblock %}

@@ -18,17 +18,17 @@ db.user = forgery
 db.password = forgery
 db.driver = pdo_mysql
 db.database = forgery
-twig.templates.dir = :packageDir/../site/pages
+twig.templates.dir = :packageDir/site/pages
 twig.debug = true
 twig.cache.dir = :packageDir/../cache
-assetic.assets.directory = :packageDir/FwkWWW/templates/assets
+assetic.assets.directory = :packageDir/site/assets
 assetic.debug = false
 assetic.action.name = Asset
 assetic.use.cache = true
 assetic.cache.directory = :packageDir/../cache
-; could be content or modification 
+; could be content or modification
 assetic.cache.strategy = content
-cms.site.path = :packageDir/../site
+cms.site.path = :packageDir/site
 fwk.build.dir = :packageDir/../fwk-build
 phpdoc.bin = :packageDir/../phpDoc.phar
 

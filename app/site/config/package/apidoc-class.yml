@@ -1,0 +1,4 @@
+template_ajax: package/apidoc-class-ajax
+datasources:
+        apidoc: 
+            service: fwk.ds.apidoc

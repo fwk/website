@@ -1,0 +1,75 @@
+{% block title %}Fwk Package Intro{% endblock title %}
+
+{% extends "layouts/package.twig" %}
+
+ {% import "package/apidoc-macros.twig" as doc %}
+
+{% set pkg = packages.one(query.package) %}
+
+{% block package_contents %}
+    <section id="pkg_contents">
+        <div class="row">
+            <div class="col-md-4" data-pjax>
+                {% set classes = apidoc.classes(query.package, query.version) %}
+                {% set interfaces = apidoc.interfaces(query.package, query.version) %}
+                <ul class="nav nav-tabs" id="docTabs" style="margin: 20px 0 0 0">
+                    <li class="active"><a href="#classes" id="classTab">Classes ({{ classes|length }})</a></li>
+                    <li><a href="#interfaces" id="interfaceTab">Interfaces ({{ interfaces|length }})</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div id="classes" class="tab-pane fade active in">
+                        {{ doc.listClasses(classes, "class", query.package, query.version, null, _helper) }}
+                    </div>
+                    <div id="interfaces" class="tab-pane">
+                        {{ doc.listClasses(interfaces, "interface", query.package, query.version, null, _helper) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8" id="pjax-container" data-pjax>
+                <h2 style="display:block;text-align: center;"><b>API Documentation</b></h2>
+            </div>
+        </div>
+        <div class="row" style="clear:both;margin-top:30px;">
+            <div class="col-md-12">
+                <ol class="breadcrumb" id="apiNav">
+                    <li><a href="{{ _helper.url('PageView', {page: 'package/intro', package: query.package}, true)|raw }}">{{ query.package|capitalize }}</a></li>
+                    <li><a href="{{ _helper.url('PageView', {page: 'package/apidoc', package: query.package, version: query.version}, true)|raw }}">API Documentation</a></li>
+                    <li class="active"></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footertag %}
+{% for asset in _helper.asset([
+'+bower/js/jquery-pjax.js',
+], null, 'pjax') %}
+    <script type="text/javascript" src="{{ asset }}"></script>
+{% endfor %}
+<script type="text/javascript">
+    $(function() {
+        $('#docTabs a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+
+        $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container', { fragment: '#pjax-container' });
+        var updateMenuActive = function() {
+            var myElt = $('#apiClass').text();
+            $("ul.classes li.active").removeClass('active');
+            var itms = $("ul.classes li a:contains("+ myElt +")").filter(function()
+                    {
+                        return $(this).text() === myElt;
+                    }
+            );
+            itms.parent().addClass('active');
+            $('ol#apiNav li.active').html(myElt);
+        };
+// Revert to a previously saved state
+        window.addEventListener('popstate', function(event) {
+            updateMenuActive();
+        });
+    });
+</script>
+{% endblock %}
