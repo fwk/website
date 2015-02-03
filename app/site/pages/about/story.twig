@@ -1,0 +1,28 @@
+{% block title %}About Fwk - The Story{% endblock title %}
+
+{% extends "layouts/about.twig" %}
+
+{% block about_title %}<small>The Story</small>{% endblock %}
+
+{% block about_contents %}
+    <p>
+        It's been a long time since I started doing Web Development. At first it was only for fun and ten years after it's now my daily job. Whatever the context, I have to admit that it wasn't always fun. So like any artisan, I was looking for the perfect toolbox. The kind of toolbox that makes you love what you do, no matter what kind of application you're working on.
+    </p>
+    <p>
+        Before PHP5 and before support of strong Object-Oriented code, only few frameworks were on the scene and Open Source contributions were a lot more complex than they are now (thanks to Github). Also, each framework suggested its own implementation and every new release implied a lot of refactoring, thus locking myself in Maintenance mode instead of Creative mode.
+    </p>
+    <p>
+        These were the reasons why I started developing my own framework, trying to make it the perfect fit for every project. But I rapidly understood this was impossible. Each project having its own requirements I had to rethink completely my implementation, a very time consuming task that I couldn't use to actually create things.
+    </p>
+    <p>
+
+        So the goal became clear: create a set of base components which would allow me to work the way defined by the project. They have to be light, non intrusive and loosely coupled allowing any kind of usage.
+    </p>
+    <p>
+
+        Iteration after iteration, I finally came up with Fwk. A set of low-level components that allow anyone to implement anything, the way he wants to, without added drawbacks or constraints. I needed nothing sticky. Something that could be easily ported to another framework, maintained and updated without worrying about the low-level architecture.
+    </p>
+    <p>
+        All these years of personal improvements are now available for the Open Source Community, free to contribute and hopefully make it a challenger alongside all the (best) frameworks nowadays popular!
+    </p>
+{% endblock %}

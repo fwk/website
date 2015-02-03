@@ -1,0 +1,29 @@
+{% block title %}About Fwk - Contribute{% endblock title %}
+
+{% extends "layouts/about.twig" %}
+
+{% block about_title %}<small>Contribute</small>{% endblock %}
+
+{% block about_contents %}
+    All contributions are welcome!
+
+    <h3>Possible Contributions</h3>
+
+    <ul class="">
+        <li>
+            <strong>Found a Bug</strong><br /> <a href="https://help.github.com/articles/creating-an-issue/">Open an Issue</a> on the corresponding Github repository. This will help others to keep track of the issue until it's fully corrected.
+        </li>
+        <li>
+            <strong>Documentation</strong><br /> Documentation for each package is hosted on the repository in the <code>docs/</code> folder. You can suggest documentation pages and correction by making a Pull-request on Github.
+        </li>
+        <li>
+            <strong>Source Code</strong><br /> Feel free to <a href="https://help.github.com/articles/using-pull-requests/">Send a Pull-request</a> on the corresponding Github repository. Please add as much Tests as you can!
+        </li>
+    </ul>
+
+    <h3>Discussion</h3>
+    <p>Questions, New features, Bugs and General Discussion takes place in the Google Group: <a href="https://groups.google.com/forum/#!forum/phpfwk">phpfwk</a>.</p>
+
+    <h3>Coding Standards</h3>
+    <p>Fwk follows the <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a> and <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md">PSR-1</a> coding standards.</p>
+{% endblock %}

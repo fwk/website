@@ -1,0 +1,49 @@
+{% block title %}About Fwk - FAQ{% endblock title %}
+
+{% extends "layouts/about.twig" %}
+
+{% block about_title %}<small>Frequently Asked Questions</small>{% endblock %}
+
+{% block about_contents %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">What does &quot;Fwk&quot; means?</h3>
+        </div>
+        <div class="panel-body">
+            It's a shorthand for Framework.
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Why reinventing the wheel ?</h3>
+        </div>
+        <div class="panel-body">
+            I don't think that Fwk tries to reinvent the wheel.
+            Fwk is also based on various components from other frameworks when I thought the need to re-invent the wheel wasn't necessary (Symfony\HttpFoundation for example).
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Is it possible to implement XYZ feature ?</h3>
+        </div>
+        <div class="panel-body">
+            It depends on what the feature is. Can't it be a standalone external component ? Years of development have taught me that the more you add, the more you have to worry about and maintain. Fwk is focused on quality and developer's happiness, not the quantity of features.
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Do you have any benchmarks ?</h3>
+        </div>
+        <div class="panel-body">
+            Nope. I don't care much about benchmarks. Environments, Hardware, Networks, Developers... talking about speed all of these are important factors which "hello-world benchmarks" are unable to measure.
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Framework XYZ is doing a better job!</h3>
+        </div>
+        <div class="panel-body">
+            If you use any library that makes you happy, you understand what philosophy is behind Fwk. Happy coding, mate!
+        </div>
+    </div>
+{% endblock %}

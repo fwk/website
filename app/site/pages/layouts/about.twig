@@ -1,0 +1,30 @@
+{% block title %}About{% endblock title %}
+
+{% extends "layouts/main.twig" %}
+
+{% block contents %}
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header">
+                    <h1>About <b>Fwk</b> {% block about_title %}<small>PHP Components</small>{% endblock %}</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-md-2">
+                <ul class=" list-unstyled">
+                    <li{% if query.page == "about" %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about'}) }}">Features</a></li>
+                    <li{% if query.page == "about/story" %}" class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about/story'}) }}">Story</a></li>
+                    <li{% if query.page == "about/faq" %}" class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about/faq'}) }}">FAQ</a></li>
+                    <li{% if query.page == "about/contribute" %}" class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about/contribute'}) }}">Contribute</a></li>
+                    <li{% if query.page == "about/license" %}" class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about/license'}) }}">License</a></li>
+                </ul>
+            </div>
+            <div class="col col-md-10">
+{% block about_contents %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

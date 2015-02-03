@@ -49,7 +49,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li{% if query.page == 'about' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about'}) }}">About</a></li>
+                <li{% if 'about' in query.page %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about'}) }}">About</a></li>
                {# <li{% if query.page == 'blog' %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'blog'}) }}">Blog</a></li> #}
             </ul>
         </div>
