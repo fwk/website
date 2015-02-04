@@ -5,14 +5,15 @@
 {% block contents %}
     <div class="container" id="main">
         <div class="row">
-            <div class="col-12">
-                <div class="page-header">
-                    <h1>About <b>Fwk</b> {% block about_title %}<small>PHP Components</small>{% endblock %}</h1>
-                </div>
+            <div class="col col-md-2">
+                <h1>About</h1>
+            </div>
+            <div class="col col-md-10">
+                <h1>{% block about_title %}<small><i class="glyphicon glyphicon-flash"></i> Features</small>{% endblock %}</h1>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="border-top:solid 1px #eee;padding-top: 20px;">
             <div class="col col-md-2">
                 <ul class=" list-unstyled">
                     <li{% if query.page == "about" %} class="active"{% endif %}><a href="{{ _helper.url('PageView', {page: 'about'}) }}">Features</a></li>

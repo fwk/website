@@ -1,6 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,900);
 body {
-    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-family: 'Lato', "Helvetica Neue", Helvetica, Verdana, sans-serif;
     background-color: #eee;
+    font-size: 1.5em;
 }
 
 #mainmenu {
@@ -300,7 +302,7 @@ b.events {
     padding-bottom: 40px;
 }
 #main {
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .tooltip {
@@ -313,7 +315,7 @@ b.events {
 }
 
 ul.classes {
-    font-size: 12px;
+    font-size: 0.9em !important;
     text-transform: none;
     overflow-y: auto;
     max-height: 600px;
@@ -432,7 +434,9 @@ h5 {
 }
 
 .breadcrumb {
+    margin-top: 20px;
     text-transform: none;
+    font-size: 1em;
 }
 
 #footer {
@@ -442,4 +446,21 @@ h5 {
     border-top: solid 1px #ccc;
     font-size: 0.9em;
 
+}
+
+.light {
+    font-weight: 100;
+}
+
+h3.panel-title {
+  font-size: 1.5em !important;
+}
+
+h4.panel-title {
+    font-size: 1.3em !important;
+}
+
+.pkg-intro h2 {
+    font-weight: 100;
+    margin-bottom: 40px;
 }
