@@ -464,3 +464,29 @@ h4.panel-title {
     font-weight: 100;
     margin-bottom: 40px;
 }
+
+
+.apidoc a.core {
+    color: #93C54B !important;
+}
+.apidoc a.db {
+    color: #4BAFC5 !important;
+}
+.apidoc a.di {
+    color: #C54B4B !important;
+}
+.apidoc a.xml {
+    color: #ECF03B !important;
+}
+.apidoc a.form {
+    color: #A95ADA !important;
+}
+.apidoc a.cache {
+    color: #4BAFC5 !important;
+}
+.apidoc a.events {
+    color: #F8A01C !important;
+}
+.apidoc a.internal {
+    color: inherit !important;
+}

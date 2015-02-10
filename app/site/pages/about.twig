@@ -3,5 +3,40 @@
 {% extends "layouts/about.twig" %}
 
 {% block about_contents %}
-    <p>TODO</p>
+    <div class="row">
+        <div class="col col-md-3">
+            <h4>Focused on Simplicity</h4>
+            <code>
+                pwet
+            </code>
+        </div>
+        <div class="col col-md-9">
+            <p>BLah Blah</p>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col col-md-9">
+            <p>BLah Blah</p>
+        </div>
+        <div class="col col-md-3">
+            <h4>Useful</h4>
+            <code>
+                pwet
+            </code>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col col-md-4">
+            <h4><i class="glyphicon glyphicon-user pull-right"></i> Your Style</h4>
+            <p>Made to let you decide how your application should work.</p>
+        </div>
+        <div class="col col-md-4">
+            <h4><i class="glyphicon glyphicon-cloud pull-right"></i> Light</h4>
+            <p>Light footprint, carefully selected dependencies</p>
+        </div>
+        <div class="col col-md-4">
+            <h4><i class="glyphicon glyphicon-eye-open pull-right"></i> Code Quality</h4>
+            <p>Code Quality Standards are very importants. We're working hard to keep Code-Coverage higher 90%</p>
+        </div>
+    </div>
 {% endblock %}

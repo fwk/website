@@ -31,7 +31,7 @@
                     {% if versions|length > 1 %}
                         <ul class="dropdown-menu">
                             {% for v in versions %}
-                                <li><a href="{{ _helper.url('PageView', {page: query.page, package: query.package, version: v}) }}">{{ v }}</a></li>
+                                <li><a href="{{ _helper.url('PageView', {page: (query.page == "package/apidoc-class" ? "package/apidoc" : query.page), package: query.package, version: v}) }}">{{ v }}</a></li>
                             {% endfor %}
                         </ul>
                     {% endif %}

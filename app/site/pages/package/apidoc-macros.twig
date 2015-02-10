@@ -2,8 +2,12 @@
 {% spaceless %}{{ _helper.url("PageView", {page: "package/apidoc-class", package: package, type: type, version: version, className: className|trim('\\')|replace({'\\': '/'})}, true)|raw }}{% endspaceless %}
 {% endmacro %}
 
+{% macro newlink(className, type, package, version, _helper) %}
+    {% spaceless %}{{ _helper.apiurl(package, type, version, className|trim('\\')|replace({'\\': '/'}))|raw }}{% endspaceless %}
+{% endmacro %}
+
 {% macro listClasses(classes, type, package, version, active, _helper) %}
-<ul class="nav nav-pills nav-stacked classes" style="font-size: 12px;max-height: 500px; overflow-y: auto;">
+<ul class="nav nav-pills nav-stacked classes">
     {% for className, infos in classes %}
                 <li{% if active == className|trim('\\')|replace({'\\': '/'}) %} class="active"{% endif %}><a href="{{ _self.link(className, type, package, version, _helper) }}">{{ className|trim('\\') }}</a></li>
     {% endfor %}
@@ -21,11 +25,11 @@
 <h3>{% if class.abstract == 'true' %}Abstract {% endif %}
     {% if class.final == 'true' %}Final {% endif %}
     {% if type == 'class' %}<span id="apiType">Class</span> {% else %}<span id="apiType">Interface</span> {% endif %} 
-    <a href="{{ _self.link(className, type, package, version, _helper) }}" id="apiClass">{{ className|replace('/', '\\') }}</a>
+    {{ _self.newlink(className, type, package, version, _helper) }}
 </h3>
-{% if class.extends != null %}<h4>&nbsp; &nbsp; &nbsp; &rBarr; extends <a href="{{ _self.link(class.extends, type, package, version, _helper) }}">{{ class.extends }}</a></h4>{% endif %}
+{% if class.extends != null %}<h4>&nbsp; &nbsp; &nbsp; &rBarr; extends {{ _self.newlink(class.extends, type, package, version, _helper) }}</h4>{% endif %}
 {% for interface in class.implements %}
-    <h4>&nbsp; &nbsp; &nbsp; {% if loop.first %} &rBarr; implements{% else %}&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;{% endif %} <a href="{{ _self.link(interface, "interface", package, version, _helper) }}">{{ interface }}</a></h4>
+    <h4>&nbsp; &nbsp; &nbsp; {% if loop.first %} &rBarr; implements{% else %}&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;{% endif %} {{ _self.newlink(interface, "interface", package, version, _helper) }}</h4>
 {% endfor %}
 <hr />
 {{ _self.docblock(class.docblock, _helper) }}
@@ -38,10 +42,14 @@
         <div class="panel-heading">
             <h4 class="panel-title">
                 <i>{{ infos.visibility }}</i>
-                {% if infos.docblock.tags['return'] is defined %}<span class="pull-right">{{ infos.docblock.tags['return'].type }}</span>{% endif %}
+                {% if infos.docblock.tags['return'] is defined %}
+                    <span class="pull-right">
+                        {{ _self.newlink(infos.docblock.tags['return'].type, "type", package, version, _helper) }}
+                    </span>
+                {% endif %}
                 <a data-toggle="collapse" data-parent="mthd{{ method }}" href="#mthd{{ method }}">
                     <strong>{% if infos.static == 'true' %}{{ class.name }}::{% endif %}{{ method }}</strong>
-                </a>({% for argument in infos.arguments %}{% if argument.type != null %}{{argument.type}} {% endif %}<u>{{ argument.name }}</u>{% if argument.default != null %} = {{argument.default}}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %})
+                </a>({% for argument in infos.arguments %}{% if argument.type != null %}{{ _self.newlink(argument.type, "type", package, version, _helper) }} {% endif %}<u>{{ argument.name }}</u>{% if argument.default != null %} = {{argument.default}}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %})
             </h4>
         </div>
         <div id="mthd{{ method }}" class="panel-collapse collapse">
@@ -60,7 +68,9 @@
 {% for property, infos in class.properties %}
     <li>
         <i>{{ infos.visibility }}</i> 
-        {% if infos.docblock.tags['var'] is defined %}<span class="pull-right">{{ infos.docblock.tags['var'].type }}</span>{% endif %} 
+        {% if infos.docblock.tags['var'] is defined %}
+            <span class="pull-right">{{ _self.newlink(infos.docblock.tags['var'].type, "type", package, version, _helper) }}</span>
+        {% endif %}
         <strong>{% if infos.static == 'true' %}{{ class.name }}::{% endif %}{{ property }}</strong> 
         {{ _self.docblock(infos.docblock, _helper) }}
     </li>

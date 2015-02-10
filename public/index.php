@@ -4,10 +4,14 @@ namespace App;
 require_once __DIR__ .'/../vendor/autoload.php';
 
 use Fwk\Core\Components\Descriptor\Descriptor;
+use Fwk\Core\Components\UrlRewriter\UrlViewHelper;
+use Fwk\Core\Components\ViewHelper\EmbedViewHelper;
+use Fwk\Core\Components\ViewHelper\EscapeViewHelper;
 use Fwk\Core\Plugins\RequestMatcherPlugin;
 use Fwk\Core\Plugins\ResultTypePlugin;
 use Fwk\Core\Plugins\UrlRewriterPlugin;
 use Fwk\Core\Plugins\ViewHelperPlugin;
+use FwkIO\Utils\ApiDocUrlViewHelper;
 use Nitronet\Fwk\Assetic\AsseticPlugin;
 use Nitronet\Fwk\Twig\TwigPlugin;
 use Nitronet\Fwk\Comments\CommentsPlugin;
@@ -23,7 +27,12 @@ $services = $app->getServices();
 $app->plugin(new RequestMatcherPlugin())
     ->plugin(new UrlRewriterPlugin())
     ->plugin(new ResultTypePlugin())
-    ->plugin(new ViewHelperPlugin());
+    ->plugin(new ViewHelperPlugin(array(
+        'url'       => new UrlViewHelper(RequestMatcherPlugin::SERVICE_NAME, UrlRewriterPlugin::SERVICE_NAME),
+        'embed'     => new EmbedViewHelper(),
+        'escape'    => new EscapeViewHelper(),
+        'apiurl'    => new ApiDocUrlViewHelper(RequestMatcherPlugin::SERVICE_NAME, UrlRewriterPlugin::SERVICE_NAME, 'fwk.ds.apidoc'),
+    )));
 
 $app->plugin(new AsseticPlugin(array(
         'directory' => $services->getProperty('assetic.assets.directory'),
