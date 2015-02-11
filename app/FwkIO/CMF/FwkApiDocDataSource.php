@@ -6,6 +6,7 @@ use Fwk\Xml\XmlFile;
 use Fwk\Xml\Map;
 use Fwk\Xml\Path;
 use Fwk\Cache\Manager;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class FwkApiDocDataSource implements DataSource
 {
@@ -14,7 +15,11 @@ class FwkApiDocDataSource implements DataSource
     protected $classes;
     protected $interfaces;
     protected $cache;
-    
+
+    // for service as a controller
+    public $package;
+    public $version;
+
     public function __construct($fwkBuildDir, Manager $cache = null)
     {
         $this->buildDir = $fwkBuildDir;
@@ -54,7 +59,25 @@ class FwkApiDocDataSource implements DataSource
         
         return $this->interfaces[$package . $version];
     }
-    
+
+    public function search($package = null, $version = null)
+    {
+        if (empty($package)) {
+            $package = $this->package;
+        }
+        if (empty($version)) {
+            $version = $this->version;
+        }
+
+        $version = (empty($version) ? 'master' : trim($version));
+
+        $this->load($package, $version);
+
+        $final = $this->interfaces[$package . $version] + $this->classes[$package . $version];
+
+        return new JsonResponse($final);
+    }
+
     protected function load($package, $version = "master")
     {
         $version = (empty($version) ? 'master' : trim($version));
