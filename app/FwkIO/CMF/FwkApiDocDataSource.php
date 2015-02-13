@@ -219,6 +219,23 @@ class FwkApiDocDataSource implements DataSource
             ->addChildren(
                 Path::factory('long-description', 'longDescription', null)
             )
+            // handle @param tag
+            ->addChildren(
+                Path::factory('tag[@name="param"]', 'params', array())
+                    ->loop(true, '@variable')
+                    ->attribute('description')
+                    ->attribute('link')
+                    ->attribute('type')
+            )
+            // handle @throws tag
+            ->addChildren(
+                Path::factory('tag[@name="throws"]', 'throws', array())
+                    ->loop(true)
+                    ->attribute('description')
+                    ->attribute('link')
+                    ->attribute('type')
+            )
+            // handle all tags
             ->addChildren(
                 Path::factory('tag', 'tags', array())
                 ->loop(true, '@name')

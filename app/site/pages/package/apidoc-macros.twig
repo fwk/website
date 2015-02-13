@@ -47,14 +47,61 @@
                         {{ _self.newlink(infos.docblock.tags['return'].type, "type", package, version, _helper) }}
                     </span>
                 {% endif %}
-                <a data-toggle="collapse" data-parent="mthd{{ method }}" href="#mthd{{ method }}">
+                <a name="method-{{ method|lower }}" data-toggle="collapse" data-parent="method-{{ method|lower }}" href="#method-{{ method|lower }}">
                     <strong>{% if infos.static == 'true' %}{{ class.name }}::{% endif %}{{ method }}</strong>
                 </a>({% for argument in infos.arguments %}{% if argument.type != null %}{{ _self.newlink(argument.type, "type", package, version, _helper) }} {% endif %}<u>{{ argument.name }}</u>{% if argument.default != null %} = {{argument.default}}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %})
             </h4>
         </div>
-        <div id="mthd{{ method }}" class="panel-collapse collapse">
-            <div class="panel-body">
+        <div id="method-{{ method|lower }}" class="panel-collapse collapse">
+            <div class="panel-body" style="padding-bottom: 0;">
                 {{ _self.docblock(infos.docblock, _helper) }}
+                <div class="row" style="margin-top: 20px; border-top: solid 1px #eee; background-color: #FEFCFF;">
+                    <div class="col col-md-8">
+{% if infos.arguments|length > 0 %}
+                        <h5>Arguments</h5>
+
+                        <dl>
+    {% for argument in infos.arguments %}
+                            <dt>
+                                <code>{{ argument.name }}</code> {% if argument.type != null %}<span style="font-weight: 100;">{{ _self.newlink(argument.type, "type", package, version, _helper) }}</span> {% endif %}
+                            </dt>
+                            <dd  style="margin-bottom: 20px; margin-top: 5px;">
+                                {% if infos.docblock.params[argument.name] is defined %}
+                                    {{ infos.docblock.params[argument.name].description|raw }}
+                                {% else %}
+                                    <p><i>no description</i></p>
+                                {% endif %}
+                                {% if argument.default != null %}
+                                    <strong>Default</strong>: {{argument.default}}
+                                {% endif %}
+                            </dd>
+                        </dl>
+    {% endfor %}
+{% endif %}
+                    </div>
+                    <div class="col col-md-4">
+                        <h5>Return Type</h5>
+                        <p style="margin-bottom:{% if infos.docblock.tags['return'].description is null %}20{% else %}5{% endif %}px;">{{ _self.newlink(infos.docblock.tags['return'].type, "type", package, version, _helper) }}</p>
+                        {% if infos.docblock.tags['return'].description is not null %}
+                            <p style="margin-bottom:20px;">{{ infos.docblock.tags['return'].description }}</p>
+                        {% endif %}
+{% if infos.docblock.throws|length > 0 %}
+    <h5>Throws</h5>
+
+    {% for throw in infos.docblock.throws %}
+            <dt>
+               <span style="font-weight: normal">{{ _self.newlink(throw.type, "type", package, version, _helper) }}</span>
+            </dt>
+            <dd  style="margin-bottom: 20px; margin-top: 5px;">
+                {% if throw.description is not null %}
+                    {{ throw.description|raw }}
+                {% endif %}
+            </dd>
+            </dl>
+    {% endfor %}
+{% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -71,7 +118,7 @@
         {% if infos.docblock.tags['var'] is defined %}
             <span class="pull-right">{{ _self.newlink(infos.docblock.tags['var'].type, "type", package, version, _helper) }}</span>
         {% endif %}
-        <strong>{% if infos.static == 'true' %}{{ class.name }}::{% endif %}{{ property }}</strong> 
+        <strong><code>{% if infos.static == 'true' %}{{ class.name }}::{% endif %}{{ property }}</code></strong>
         {{ _self.docblock(infos.docblock, _helper) }}
     </li>
 {% endfor %}

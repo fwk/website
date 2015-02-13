@@ -41,7 +41,7 @@
     </actions>
 
     <url-rewrite>
-        <url route="/:package/:version/api/index.json$" action="PkgSearch">
+        <url route="/:package/:version/api-index.json$" action="PkgSearch">
             <param name="package" regex="core|db|di|xml|form|cache|events|Core|Db|Di|Xml|Form|Cache|Events" required="true" />
             <param name="version" regex=".*" required="true">master</param>
         </url>

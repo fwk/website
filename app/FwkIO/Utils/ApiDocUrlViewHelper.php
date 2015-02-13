@@ -51,7 +51,7 @@ class ApiDocUrlViewHelper extends UrlViewHelper
         $fwkApi     = $this->getFwkApiDocDatasource();
 
         if (null === $className) {
-            return null;
+            return "";
         }
 
         if (isset(static::$cache[$package . $type . $version . $className])) {
@@ -169,7 +169,16 @@ class ApiDocUrlViewHelper extends UrlViewHelper
      */
     public function isPhpInternal($className)
     {
-        if (!class_exists($className, false) && !interface_exists($className)) {
+        if (empty($className)) {
+            return false;
+        }
+
+        $stripped = strtolower(ltrim($className, '\\'));
+        if (in_array($stripped, array("string", "int", "integer", "mixed", "bool", "boolean", "number", "float", "floatval", "array", "object", "closure", "function", "callable", "callback"))) {
+            return true;
+        }
+
+        if (!class_exists($className, false) && !interface_exists($className, false)) {
             return false;
         }
 
