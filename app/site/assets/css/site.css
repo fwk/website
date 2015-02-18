@@ -59,6 +59,15 @@ body {
     color: #666;
     margin:5px 0 0 0;
 }
+.tt-highlight {
+    text-decoration: underline;
+    font-weight: inherit;
+}
+
+span.desc .tt-highlight  {
+    text-decoration: none !important;
+    font-weight: inherit;
+}
 
 #mainmenu {
     margin-bottom: 0;
