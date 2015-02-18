@@ -6,6 +6,8 @@
 {% extends "layouts/package.twig" %}
 
 {% block headertag %}
+{{ parent() }}
+
     {% for asset in _helper.asset([
     '+bower/js/jquery-pjax.js',
     ], null, 'pjax') %}

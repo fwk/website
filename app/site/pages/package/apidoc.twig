@@ -42,6 +42,8 @@
 {% endblock %}
 
 {% block footertag %}
+{{ parent() }}
+
 {% for asset in _helper.asset([
 '+bower/js/jquery-pjax.js',
 ], null, 'pjax') %}

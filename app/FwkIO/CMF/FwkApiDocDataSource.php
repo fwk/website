@@ -75,7 +75,25 @@ class FwkApiDocDataSource implements DataSource
 
         $final = $this->interfaces[$package . $version] + $this->classes[$package . $version];
 
-        return new JsonResponse($final);
+        $result = array();
+        foreach ($final as $fullname => $infos) {
+            $idx = array(
+                'name'      => $infos['name'],
+                'fullname'  => ltrim($fullname, '\\'),
+                'clean'       => substr(ltrim($fullname, '\\'), strlen($package)+5),
+                'description' => $infos['docblock']['description'],
+                'url'       => str_replace('\\', '/', ltrim($fullname, '\\')),
+                'type'      => (isset($this->interfaces[$package . $version][$fullname]) ? 'interface' : 'class')
+            );
+            $methods = array();
+            foreach ($infos['methods'] as $method => $infosMethod) {
+                $methods[] = array('name' => $method, 'description' => $infosMethod['docblock']['description']);
+            }
+            $idx['methods'] = $methods;
+            array_push($result, $idx);
+        }
+
+        return new JsonResponse($result);
     }
 
     protected function load($package, $version = "master")

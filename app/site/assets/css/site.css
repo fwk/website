@@ -5,6 +5,61 @@ body {
     font-size: 1.5em;
 }
 
+.twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+    margin-bottom: 0;
+}
+
+.tt-dropdown-menu {
+    min-width: 250px;
+    margin-top: 2px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.2);
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    text-align: left !important;
+}
+
+.tt-suggestion.tt-cursor {
+    background-color: #eee;
+}
+
+.tt-header {
+    background-color: #eee;
+    padding: 1px 5px;
+}
+.tt-suggestion {
+    display: block;
+    margin: 0;
+    padding: 10px 10px;
+    font-weight: bold;
+    text-transform: none;
+    line-height: 14px;
+    font-size: 12px;
+    cursor:pointer;
+}
+.tt-suggestion:hover {
+    text-decoration: none;
+    background-color: #eee;
+}
+
+.tt-suggestion span.desc {
+    display: block;
+    font-weight: 100;
+    color: #666;
+    margin:5px 0 0 0;
+}
+
 #mainmenu {
     margin-bottom: 0;
     border-radius: 0;
@@ -107,7 +162,7 @@ body {
 #submenu.navbar {
     min-height: auto;
 }
-#submenu ul li a {
+#submenu ul>li>a {
     text-align: center;
     padding: 10px 20px 10px 20px;
 }

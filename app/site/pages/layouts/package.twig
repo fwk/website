@@ -39,7 +39,7 @@
                 <li>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search Docs &amp; API">
+                            <input type="text" id="search" class="form-control" placeholder="Search API">
                         </div>
                     </form>
                 </li>
@@ -51,4 +51,109 @@
 <div class="container {{ query.package|lower }}" id="main">
     {% block package_contents %}{% endblock %}
 </div>
+{% endblock %}
+
+{% block footertag %}
+{{ parent() }}
+
+{% for asset in _helper.asset([
+'+bower/js/handlebars-v3.0.0.js',
+'+bower/typeahead.js/typeahead.bundle.min.js'
+], null, 'typeahead') %}
+    <script type="text/javascript" src="{{ asset }}"></script>
+{% endfor %}
+
+<script type="text/javascript">
+    var apiSearchUrl = "{{ _helper.url('PkgSearch', {package: query.package, version: query.version}) }}",
+            spanClass = "{{ query.package|lower }}",
+            baseUrl = "{{ _helper.url('PageView', {page: 'package/apidoc-class', package: query.package, version: query.version, type: '%TYPE%', className: '%CLASSNAME%'}) }}";
+
+    {% verbatim %}
+    $(document).ready(function() {
+        var urlHelper = function(event, suggestion, dataset) {
+            var url = null;
+            if (dataset == "api") {
+                url = baseUrl.replace('%CLASSNAME%', suggestion.url).replace('%TYPE%', suggestion.type);
+            } else if (dataset == "api-methods") {
+                url = baseUrl.replace('%CLASSNAME%', suggestion.origin.url).replace('%TYPE%', suggestion.origin.type) + '#method-'+ suggestion.method.toLowerCase();
+            }
+
+            return url;
+        };
+
+        // load api for search
+        $.ajax({
+            url: apiSearchUrl,
+            dataType: "json",
+            async: true,
+            timeout: 3000
+        })
+        .success(function( data ) {
+            var apiblood = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                limit: 7,
+                local: data
+            });
+            apiblood.initialize();
+
+            var methods = [];
+            $.each(data, function(v, obj) {
+                $.each(obj.methods, function(v2, method) {
+                    var mix = {
+                        method: method.name,
+                        description: method.description,
+                        origin: obj
+                    };
+                    methods.push(mix);
+                });
+            });
+
+            var apibloodMethods = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('method'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                limit: 5,
+                local: methods
+            });
+            apibloodMethods.initialize();
+
+            $('#search').typeahead(
+                    {
+                        highlight: false
+                    },
+                {
+                    name: 'api',
+                    displayKey: 'clean',
+                    source: apiblood.ttAdapter(),
+                    templates: {
+                        header: '<div class="tt-header">Classes &amp; Interfaces</div>',
+                        suggestion: Handlebars.compile('<b class="'+ spanClass +'">{{clean}}</b> <span class="desc">{{description}}</span>')
+                    }
+                },{
+                    name: 'api-methods',
+                    displayKey: 'method',
+                    source: apibloodMethods.ttAdapter(),
+                    templates: {
+                        header: '<div class="tt-header">Methods</div>',
+                        suggestion: Handlebars.compile('<b class="'+ spanClass +'">{{ origin.clean }}::{{method}}()</b> <span class="desc">{{description}}</span>')
+                    }
+                }
+            ).bind('typeahead:selected', function(event, suggestion, dataset) {
+                var url = urlHelper(event, suggestion, dataset);
+                if (url) {
+                    window.location.href = url;
+                }
+            }).bind('typeahead:autocompleted', function(event, suggestion, dataset) {
+                var url = urlHelper(event, suggestion, dataset);
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+        });
+    });
+    {% endverbatim %}
+
+
+</script>
+
 {% endblock %}

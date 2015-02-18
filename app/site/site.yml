@@ -29,19 +29,10 @@ urls:
                 default: master
             type:
                 required: true
-                regex: class|interface
+                regex: class|interface|%TYPE%
             className:
                 required: true
                 regex: .*
-    "/:package/:version/api/index.json$":
-                page: package/apidoc
-                parameters:
-                    package:
-                        required: true
-                        regex: core|db|di|xml|form|cache|events|Core|Db|Di|Xml|Form|Cache|Events
-                    version:
-                        required: false
-                        default: master
     "/:package/:version/api$":
             page: package/apidoc
             parameters:

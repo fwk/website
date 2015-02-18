@@ -42,6 +42,8 @@
 {% endblock %}
 
 {% block footertag %}
+{{ parent() }}
+
 {% for asset in _helper.asset([
 '+bower/js/jquery-pjax.js',
 ], null, 'pjax') %}
@@ -76,7 +78,7 @@
 
             $(document).ready(function() {
                 var hash = window.location.hash;
-                if (hash !== undefined) {
+                if (hash !== undefined && hash != "" && hash != null) {
                     $('html, body').animate({
                         scrollTop: $('a[name="' + hash.substring(1) + '"]').offset().top -10
                     }, 300, function() {
